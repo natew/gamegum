@@ -1,0 +1,7 @@
+<% content_for(:title, 'Edit Thread') %>
+<%= render :partial => 'account/nav' %>
+
+<div class="twothirds">
+  <h2>Edit Thread in <%= link_to @topic.title, @topic %></h2>
+  <%= render :partial => 'form', :locals => { :button_text => 'Edit Thread' } %>
+</div>

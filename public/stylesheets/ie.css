@@ -1,0 +1,68 @@
+/* ---------------------------------------------
+GameGum Internet Explorer Styles
+--------------------------------------------- */
+input {padding: 2px;}
+dt, dd {height: 18px;}
+ul a {height: 1em;}
+table {border-collapse: collapse;}
+.featured a, #main .classics a, #main .games.mini a, img, #head li a { behavior: url(/iepngfix.htc); }
+#content .mininav li.title.img a:hover, #content .mininav li.title.img a:hover span {background: none;}
+#main_inner {background: none;}
+form {margin: 0;}
+.submitbutton {padding: 4px 4px;}
+#main fieldset {background: none;}
+#main label {
+  line-height: 1.4em;
+  margin-top: 4px;
+}
+
+#search form, #loginbox form {float: right;}
+#search label, #loginbox label {display: none;}
+
+#main #content .announce {padding-top: 0;}
+
+#main .featured strong, #main .featured li p, #main .classics a span {background: #222;}
+.featured a:hover, .classics a:hover {cursor: pointer;}
+.featured li p {width: 377px;}
+#main #content .featured.small li p {width: 270px;}
+
+#main .classics {width: 216px; margin-left: -34px;}
+#main .quarter .classics {margin-left: -12px; width: 300px;}
+
+#content.full .games li {padding: 0 2px; width: 308px;}
+#main .quarter .games.mini li {margin: 0 0 -14px 0;}
+#main .games.mini li {margin: 0;}
+#main .games.mini li a {
+  display: inline;
+  padding-left: 4px;
+  line-height: 2.8em;
+  background: none !important;
+}
+
+#content.full {
+	border-right: 1px solid #fff;
+	width: 950px;
+	padding-left: 14;
+	padding-right: 14;
+}
+
+#content h3 span.right {
+  margin: 0 0 0 4px;
+  padding: 0;
+  float: none;
+}
+
+#content {
+  position: relative;
+  z-index: 1;
+}
+
+#loginbox a {float: none; display: inline;}
+#loginbox {
+  margin: 0;
+  padding: 0;
+  width: 340px;
+  height: 40px;
+  white-space: nowrap;
+  position: relative;
+}

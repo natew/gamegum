@@ -1,0 +1,20 @@
+    <%= form_tag session_path do %>
+      <label class="inline" for="username">
+        Username
+      </label>
+	  <%= text_field_tag :login, '', :class => 'text', :autofocus => true %><br />
+	
+      <label class="inline" for="password">
+        Password
+      </label>
+	  <%= password_field_tag :password, '', :class => 'text' %><br />
+
+      <label class="inline" for="password">
+        Remember?
+      </label>
+	  <%= check_box_tag 'remember_me' %><br />
+	  
+	  <%= submit_tag "Login", :class => 'submitbutton inline' %>
+	  
+	  <p class="inline"><%= link_to 'Forgot password?', forgot_path %></p>
+	<% end -%>

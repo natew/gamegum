@@ -1,0 +1,13 @@
+<% content_for(:title, 'Categories') %>
+<%= render :partial => 'nav' %>
+
+  <div class="twothirds">
+    <h2>Categories</h2>
+  </div>
+  
+  <div class="onethird">
+    <h2>Latest Games</h2>
+    <ul class="lists">
+      <%= render :partial => 'list', :collection => @recent, :locals => { :info => 'date' } %>
+    </ul>
+  </div>

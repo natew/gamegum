@@ -1,0 +1,10 @@
+# Use the README file as a reference to customize settings.
+
+Article:
+  fields:
+    default: title, live, user, created_at
+    form: title, body, live, user_id
+  relationships: user
+  search: title
+  order_by: updated_at
+  application: Application

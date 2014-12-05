@@ -1,0 +1,31 @@
+    <% content_for(:title, @topic.title) %>
+    <%= render :partial => 'nav' %>
+    
+    <% if logged_in? %>
+      <%= link_to 'New Thread', new_topic_discussion_path(@topic), :class => 'button' %>
+    <% end %>
+
+    <div class="contain">      
+      <h3 class="breadcrumbs"><%= link_to 'Forum Home', '/topics' %> &gt; <%= @topic.title %></h3><br />
+
+      <table class="forum flush">
+        <tr class="head">
+          <td width="4%"></td>
+          <td width="48%" class="left"><h4>Topic</h4></td>
+          <td width="15%"></td>
+          <td width="15%"><h4>Latest Reply</h4></td>
+          <td class="center" width="8%"><h4>Replies</h4></td>
+          <td class="center last" width="10%"><h4>Views</h4></td>
+        </tr>
+        <%- unless @discussions.empty? -%>
+        <%= render :partial => 'discussion', :collection => @discussions %>
+        <%- else -%>
+        <tr>
+          <td colspan="6">
+            <h4 class="center">There are no threads yet, why not start one?</h4>
+          </td>
+        </tr>
+        <%- end -%>
+      </table>
+      <%= will_paginate @discussions %>
+    </div>

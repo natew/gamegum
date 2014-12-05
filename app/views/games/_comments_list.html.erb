@@ -1,0 +1,10 @@
+    <% unless logged_in? %><h4 class="obox"><%= render 'shared/signup_or_login' %> to post a comment</h4><% end %>
+    <%- if @game.comments.empty? -%>
+      <br />
+      <h4>No comments, yet.  Be the first!</h4>
+    <%- else -%>
+      <ul class="comments">
+        <%= render :partial => 'shared/comment', :collection => @comments -%>
+      </ul>
+      <%= will_paginate @comments, :params => { :controller => 'games', :action => "#{@game.to_param}", :id => nil }, :class => 'pagination ajax' %>
+    <%- end -%>

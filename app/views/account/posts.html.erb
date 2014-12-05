@@ -1,0 +1,20 @@
+  <% content_for(:title, 'My Posts') %>
+  <%= render :partial => 'nav' %>
+  <div class="contain">
+    <h2>Posts <span><%= current_user.posts.count %> total</span></h2>
+    <table class="forum">
+      <tr class="head">
+        <td class="seventy left"><h4>View</h4></td>
+        <td class="fifteen"><h4>Edit</h4></td>
+        <td class="fifteen"><h4>Date  <%= image_tag('arrow_down.gif') %></h4></td>
+      </tr>
+      <%- for post in @posts -%>
+      <tr class="<%= cycle('even', 'odd') %>">
+        <td class="preview left"><h4><%= link_to post.discussion.title, topic_discussion_path(post.discussion.topic,post.discussion) %></h4> &middot; <%= strip_tags post.message[0, 200] %></td>
+        <td><% if post.created_at > 2.weeks.ago %><%= link_to image_tag("edit.gif"), edit_post_path(post) %><% else %>Edit period expired<% end %></td>
+        <td><%= relative_time post.created_at %></td>
+      </tr>
+      <%- end -%>
+    </table>
+<%= will_paginate @posts %>
+  </div>

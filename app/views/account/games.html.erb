@@ -1,0 +1,10 @@
+<% content_for(:title, 'My Games') %>
+<%= render :partial => 'nav' %>
+
+  <div class="contain">
+    <%- unless current_user.games.empty? -%>
+      <%= render 'games/td_list' %>
+    <%- else -%>
+      <h3>Submit some games and see 'em here!</h3>
+    <%- end -%>
+  </div>

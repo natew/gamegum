@@ -1,0 +1,15 @@
+  <div class="contain">
+    <%= form_tag forgot_path do %>
+      <label for="login">
+        Username
+      </label>
+	    <%= text_field_tag :login, '', :class => 'text titlefield', :autofocus => true %><br />
+	    
+	    <label for="email">
+	      Email
+	    </label>
+	    <%= text_field_tag :email, '', :class => 'text titlefield' %><br />
+	  
+	    <%= submit_tag "Reset my password", :class => 'submitbutton' %>
+	  <% end -%>
+  </div>

@@ -1,0 +1,16 @@
+  <% content_for(:title, 'Edit Game') %>
+  <div class="twothirds">
+    <h2>Edit Game <%= link_to @game.title, @game %></h2>
+    <%= render 'form' %>
+  </div>
+  
+  <div class="onethird boxed">
+  <h3>About Editing</h3>
+    <ul>
+      <li>File must be <strong>.swf</strong> format.</li>
+      <li>Icons are resized to <strong>48</strong> by <strong>48</strong> pixels.</li>
+      <li>You retain full rights to the content you submit, and can edit or delete your submissions at any time through your Profile.</li>
+      <li>Earn up to 50% on your submissions with revenue sharing.</li>
+    </ul>
+  </div>
+</div>

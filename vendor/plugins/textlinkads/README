@@ -1,0 +1,42 @@
+Textlinkads Rails Plugin
+========================
+
+To install:
+script/plugin install http://svn.nanorails.com/plugins/textlinkads/
+
+or to use svn:externals to get updates
+script/plugin install -x http://svn.nanorails.com/plugins/textlinkads/
+
+then to create the migration file:
+rake textlinkads:migration
+
+then run migrate
+rake migrate
+
+Other rake tasks:
+
+rake textlinkads:clear               # Clears the Database Tables needed for TextLinkAds
+rake textlinkads:install             # Adds the Database Tables needed for TextLinkAds
+rake textlinkads:migration           # Creates the TextLinkAds table migration
+rake textlinkads:reinstall           # Reinstalls the Database Tables needed for TextLinkAds
+rake textlinkads:uninstall           # Removes the Database Tables needed for TextLinkAds
+
+To configure, edit the file config/textlinkads.yml
+
+key: Your Text Link Ads Key (available from the Text Link Ads control panel)
+affiliateid: your affiliate ID if you have one.  It will add it to the referrer URL
+title: Title to use for the links in render_TLA
+advertisehere: Text to use if there are no links
+testing: set to true to use the test links from TextLinkAds
+caching: Whether to use caching or not.
+
+
+To use, inside any view (.rhtml), use:
+
+<%= render_TLA %>
+
+Or to have better control over the HTML, use links_TLA() that fetches the links into @links and @rss_links.  See the implementation of render_TLA in textlinkads.rb for more details.
+
+To add a link to an RSS entry, use: render_TLA_RSS(post_id) from within any Controller or Helper class.
+
+The tests need to be reviewed and updated with the latest changes.

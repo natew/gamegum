@@ -1,0 +1,49 @@
+<% content_for(:title, 'Edit Profile') %>
+<%= render :partial => 'nav' %>
+
+    <div class="twothirds">
+      <h2>Edit Profile</h2>
+      <%= form_for current_user, :url => { :action => 'profile' }, :html => { :multipart => true } do |f| %>
+        <fieldset>
+          <legend>Preferences</legend>
+          <%= label :user, :show_avatar, 'Show Avatar', :class => 'inline' %>
+          <%= f.check_box :show_avatar %><br />
+          
+          <%= label :user, :allow_embed, 'Show Email', :class => 'inline' %>
+          <%= f.check_box :show_email %>
+          <p class="inline">We encode your email to avoid spambots</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Avatar</legend>
+          <img alt="<%= current_user.login %>'s Avatar" src="<%= current_user.avatar.url %>" />
+          <%= file_field :user, 'avatar', :class => 'file' %>
+        </fieldset>
+
+        <%= label :user, :about_me, 'About Me' %>
+        <%= f.text_area :about_me, :rows => 5 %><br />
+        
+        <hr />
+
+        <%= label :user, :age, 'Date of Birth', :class => 'inline' %>
+        <%= f.date_select :age, { :start_year => Time.now.year - 8, :end_year => 1920, :order => [:month, :day, :year] }, { :class => 'age' } %><br />
+
+        <%= label :user, :website, 'Website', :class => 'inline' %>
+        <%= f.text_field :website %><br />
+
+        <%= label :user, :location, 'Location', :class => 'inline' %>
+        <%= f.text_field :location %><br />
+
+        <%= label :user, :aim, 'AIM', :class => 'inline' %>
+        <%= f.text_field :aim %><br />
+
+        <%= label :user, :msn, 'MSN', :class => 'inline' %>
+        <%= f.text_field :msn %><br /><br />
+
+        <%= submit_tag 'Update', :class => 'submitbutton inline' %>
+      <% end %>
+    </div>
+    
+    <div class="onethird">
+      <%= render :partial => 'side' %>
+    </div>

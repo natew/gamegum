@@ -1,0 +1,19 @@
+<% content_for(:title, 'Account') %>
+<%= render :partial => 'nav' %>
+
+    <div class="twothirds">
+    <%- if @pulse.length.zero? -%>
+      <h2>Hello</h2>
+      <p class="description">Welcome to your dashboard.  Here you can view updates on everything your friends are doing around the site, view your stats, and use the links to the right to quickly edit your information.</p>
+      <p class="description">Add some friends to see their activity here!</p>
+    <%- else -%>
+      <h2>Friends Pulse</h2>
+      <ul class="pulse">
+        <%= render :partial => 'shared/pulse', :collection => @pulse %>
+      </ul>
+    <%- end -%>
+    </div>
+
+    <div class="onethird">
+      <%= render :partial => 'side' %>
+    </div>

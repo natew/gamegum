@@ -1,0 +1,5 @@
+<h4 class="title"><% if latest_discussion.sticky %><strong>Sticky: </strong><% end %><%= link_to latest_discussion.title, topic_discussion_path(latest_discussion.topic, latest_discussion) %></h4>
+<p>
+	<%= truncate latest_discussion.message, :length => 300 %>
+	<strong class="continue"><%= link_to latest_discussion.user.login, latest_discussion.user %> <%= relative_time latest_discussion.created_at %> &middot; <strong><%= latest_discussion.posts.count %> replies, <%= latest_discussion.views %> views</strong></strong>
+</p>

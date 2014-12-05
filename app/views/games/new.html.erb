@@ -1,0 +1,24 @@
+      <% content_for(:title, 'Submit Game') %>
+      <div class="twothirds">
+        <h2>Upload your game</h2>
+        <% if logged_in? and !current_user.email_confirmed %><h4 class="obox"><%= link_to 'Confirm your email', { :controller => 'account', :action => 'edit' } %> to submit games.</h4><% end %>
+        <% unless logged_in? %><h4 class="obox"><%= render 'shared/signup_or_login' %> to submit your game</h4><% end %>
+        
+        <%= render 'form' %>
+      </div>
+      
+      <div class="onethird boxed">
+      <h3>About Submitting</h3>
+      <h4>Who can submit?</h4>
+      <p>You must be the creator or own the legal rights to the game in order to submit to GameGum.</p>
+      
+      <h4>How do I make money?</h4>
+      <p>We share up to 50% of all revenue made on your game pages.  Learn more by reading our <strong><%= link_to 'developer terms', '/rules' %></strong>.</p>
+      
+      <h4>What happens to my content?</h4>
+      <p>You retain full rights to your games, and can edit or delete them at any time!  We're always open to working with developers, just <strong><%= link_to 'get in touch', '/contact' %></strong> or head on over to the forums!</p>
+      
+      <h4>Anything else?</h4>
+      <p>Files submitted must be <strong>.swf</strong> format and under 15MB.  Icons are resized to <strong>48</strong> by <strong>48</strong> pixels.</p>
+      </div>
+    </div>

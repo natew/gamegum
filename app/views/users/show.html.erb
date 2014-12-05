@@ -1,0 +1,14 @@
+    <% content_for(:title, @cuser.login) %>
+	<div class="twothirds">
+		<%= render :partial => 'nav' %>
+	
+        <%- unless @cuser.about_me -%>
+        <p class="description"><%= @cuser.about_me %></p>
+        <%- end -%>
+    
+        <ul class="pulse">
+          <%= render :partial => 'shared/pulse', :collection => @pulse %>
+        </ul>
+      </div>
+      
+      <%= render :partial => 'side' %>

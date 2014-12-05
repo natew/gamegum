@@ -1,0 +1,30 @@
+  <% content_for(:title, 'Friends') %>
+  <div class="twothirds">
+    <%= render :partial => 'nav' %>
+  
+    <table class="forum small">
+      <tr class="head">
+        <td width="5%"></td>
+        <td width="40%" class="left">Username</td>
+        <td width="20%" class="left">Joined</td>
+        <td width="15%">GumPoints</td>
+        <td width="15%"></td>
+      </tr>
+      <%- for friend in @friends -%>
+      <tr class="<%= cycle('even', 'odd') %>">
+        <td><%= link_to image_tag(friend.avatar.url), friend, :class => 'icon' %></td>
+        <td class="left preview"><h4><%= link_to friend.login, friend %></h4></td>
+        <td class="left"><%= relative_time friend.created_at %></td>
+        <td><%= number_with_delimiter friend.gumpoints %></td>
+        <td><%= link_to 'Remove', friend, { :class => 'modal submitbutton', :rel => "remove_friend_#{friend.id}" } %></td>
+      </tr>
+      <div id="remove_friend_<%= friend.id %>_modal" class="modal_window">
+        <h2>Are you sure you'd like to remove <%= friend.login %>?</h2><br />
+        <%= link_to 'Remove', { :controller => 'friends', :action => 'destroy', :id => friend.id }, :class => 'submitbutton' %>
+      </div>
+      <%- end -%>
+    </table>
+    <%= will_paginate(@friends) %>
+  </div>
+  
+  <%= render :partial => 'side' %>

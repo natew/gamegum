@@ -1,0 +1,21 @@
+<% content_for(:title, @discussion.title) %>
+<%= render :partial => 'topics/nav' %>
+
+    <div class="contain">
+      <h3 class="breadcrumbs"><%= link_to 'Forum Home', { :controller => 'topics' } %> &gt; <%= link_to @discussion.topic.title, topic_path(@discussion.topic) %> &gt; <%= @discussion.title %></h3>
+      
+      <table class="forum">
+        <tr>
+          <td class="first" width="20%"></td>
+          <td class="last" width="80%"></td>
+        </tr>
+        <%= render :partial => 'post', :object => @discussion %>
+        <%= render :partial => 'post', :collection => @posts %>
+      </table>
+    
+      <% if logged_in? %>
+        <h3>Add Reply</h3>
+        <%= render 'shared/error_messages', :target => @post unless @post.nil? %>
+        <%= render 'posts/form' %>
+      <% end %>
+    </div>

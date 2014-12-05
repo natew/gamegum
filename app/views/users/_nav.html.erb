@@ -1,0 +1,27 @@
+<div class="head_info">
+  <%= image_tag(@cuser.avatar.url, :class => 'avatar') if @cuser.show_avatar? %>
+  <h2><%= @cuser.login %><% if @cuser.recently_activated? %><span>Online</span><% end %></if></h2>
+  
+  
+        <ul class="subnav">
+          <li><%= link_to 'Send Message', { :controller => 'messages', :action => 'new', :id => @cuser.id } if logged_in? %></li>
+          <li class="toggle_ajax">
+          <%- if logged_in? and current_user.is_friends_with? @cuser -%><%= render :partial => 'friends/friend' %>
+          <%- elsif logged_in? and current_user.is_pending_friend_with? @cuser -%><%= render :partial => 'friends/pending_friend' %>
+          <%- elsif logged_in? and @cuser.id != current_user.id -%><%= render 'friends/add_friend' %>
+          <%- end -%></li>
+          <% unless @cuser.website.nil? %><li><a rel="nofollow" href="http://<%= @cuser.website %>">Website</a></li><% end %>
+          <% if @cuser.show_email %><li><%= mail_to @cuser.email, 'Email', :encode => 'hex' %></li><% end %>
+          <li><%= link_to "#{image_tag('feed.gif')} Pulse Feed".html_safe, user_path(@cuser, :format => :rss) %></a></li>
+        </ul>
+        
+</div>
+
+<%- unless @cuser.favorites.empty? and @cuser.games.empty? and @cuser.friends.empty? -%>
+	  <ul class="nav top">
+      <%= li 'Favorites', favorites_user_path(@cuser) unless @cuser.favorites.empty? %>
+      <%= li 'Submissions', submissions_user_path(@cuser) unless @cuser.games.empty? %>
+      <%= li 'Friends', friends_user_path(@cuser)  unless @cuser.friends.empty? %>
+      <%= li 'Profile', user_path(@cuser), :active => { :when => [[],['show']] } %>
+    </ul>
+<%- end -%>

@@ -1,0 +1,75 @@
+    <% if false %>
+      <div class="leaderboard">
+        <%= render :partial => 'shared/ad_bassdownload_leaderboard' %>
+      </div>
+    <% end %>
+
+	<div class="half">
+	  <h2>Featured Games <span><%= link_to 'More&nbsp;&raquo;'.html_safe, :controller => 'games', :action => 'featured' %></span></h2>
+      <ul class="feat">
+        <%= render :partial => 'feat', :collection => @featured_games %>
+      </ul>
+
+      <h3>Free Online Games by Topic <span><%= link_to 'See&nbsp;All&nbsp;&raquo;'.html_safe, :controller => 'games', :action => 'pages' %></span></h3>
+      <% cache('index_featured_pages') do %>
+        <%= render :partial => 'pages/item', :collection => @pages unless @pages.nil? %>
+      <% end %><br /><br />
+	</div>
+
+	<div class="quarter m">
+	  <%= render :partial => 'shared/ad_index_quarter_m' %><br /><br />
+
+	  <h3>Categories</h3>
+	  <% cache('index_categories') do %> 
+	    <% @categories.each_with_index do |cat, index| %> 
+	      <h3><%= link_to "<strong>#{cat.title} Games</strong>".html_safe, category_path(cat) %></h3>
+	    <% end %>
+	  <% end %>
+	  <br />
+
+	  <%= render :partial => 'shared/ad_skyscraper' %>
+	  
+	  <br /><br />
+
+	  <h3>Sponsors</h3>
+	  <% unless @links.nil? or @links.size.zero? %>
+	  <% cache('tla') do %>
+	    <ul>
+	    <% @links.each do |link| %>
+	      <li><%= link['BeforeText'].empty? ? '' : "#{link['BeforeText']} " %><a href="<%= link['URL'] %>"><%= link['Text'] %></a><%= link['AfterText'].empty? ? '' : " #{link['AfterText']}" %></li>
+	    <% end %>
+	    </ul>
+	  <% end %>
+	  <% end %>
+	</div>
+
+	<div class="onethird no-pad-right">
+	  <%= render :partial => 'shared/ad_square_index' %><br /><br />
+	  
+	  <!-- BuySellAds.com Zone Code
+	  <div id="bsap_1265132" class="bsarocks bsap_0d2e530b852a319aeb9684c2de7893d2"></div>
+	  <br /><br /> -->
+	
+	  <h3>Newest Games <span><%= link_to 'More&nbsp;&raquo;'.html_safe, '/games' %></span></h3>
+	  <ul class="lists">
+	    <%= render :partial => 'games/list', :collection => @latest, :locals => { :info => 'date' } %>
+	  </ul>
+	  
+	  <h3>Recently Popular Games <span><%= link_to 'More&nbsp;&raquo;'.html_safe, '/games/viewed' %></span></h3>
+	  <ul class="comments g">
+	    <%= render :partial => 'games/game', :collection => @recently_popular %>
+	  </ul>
+	  
+	  <h3>Community Pulse <span><%= link_to 'Pulse&nbsp;&raquo;'.html_safe, '/pulse' %></span></h3>
+	  <div class="mid">
+	    <ul class="pulse">
+	      <%= render :partial => 'shared/pulse', :collection => @pulse %>
+	    </ul>
+	  </div><br /><br />
+	
+	  <% cache('index_blog') do %>
+	  <h3>GameGum Blog <span><%= link_to 'More&nbsp;&raquo;'.html_safe, :controller => 'articles' %></span></h3>
+	    <h4><%= link_to @article.title, @article %> <span><%= relative_time @article.created_at %></span></h4>
+	    <p><%= truncate @article.body, :length => 80 %></p>
+	  <%- end -%>
+	</div>

@@ -1,0 +1,12 @@
+    <div class="contain">
+      <h2>404 Not Found</h2>
+      <p>Oops!  Looks like were having trouble with your request.  An error report has been submitted to our admin!  We will be looking into it shortly...</p>
+      
+      <h3>While you're here...</h3>
+      <p>Here are some cool games</p>
+      <ul class="feat">
+      <%- unless @featured_games.empty? -%>
+      <%= render :partial => 'main/feat', :collection => @featured_games %>
+      <%- end -%>
+      </ul>
+    </div>

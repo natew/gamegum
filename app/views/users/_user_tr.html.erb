@@ -1,0 +1,7 @@
+    <tr class="<%= cycle('even', 'odd') %>">
+      <td><h2><%= user_tr_counter+1 + (25*(@page-1)) %>.</h2></td>
+      <td><%= link_to image_tag(user_tr.avatar.url), user_tr, :class => 'icon' %></td>
+      <td class="left preview"><h4><%= link_to user_tr.login, user_tr %></h4></td>
+      <td><%= relative_time user_tr.created_at %></td>
+      <td><%= number_with_delimiter user_tr.gumpoints %></td>
+    </tr>

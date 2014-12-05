@@ -1,0 +1,39 @@
+      <h3><%= current_user.login %> <span><%= link_to 'View my profile', current_user %></span></h3>
+      <%= link_to image_tag(current_user.avatar.url, :class => 'avatar_float'), current_user %>
+
+      <dl>
+        <%= dt_dd 'Gumpoints', number_with_delimiter(current_user.gumpoints) %>
+        <%= dt_dd 'Friends', number_with_delimiter(current_user.friends.size) %>
+        <%= dt_dd 'Posts', number_with_delimiter(current_user.posts.size) %>
+        <%= dt_dd 'Comments', number_with_delimiter(current_user.comments.size) %>
+      </dl>
+      
+      <%- unless current_user.email_confirmed -%>
+        <h3>Email not confirmed</h3>
+        <p>You have not yet confirmed your email address, which is required to submit games and participate in the community.  You can <%= link_to 'update your email or resend the verification here', :controller => 'account', :action => 'edit' %>.</p>
+      <%- end -%>
+    
+      <%- unless current_user.pending_friends_by_me.empty? -%>
+      <h3>Friend Requests <span>to</span></h3>
+      <ul class="alphabet">
+      <%- for friend in current_user.pending_friends_by_me -%>
+        <li><%= link_to friend.login, friend %></li>
+      <%- end -%>
+      </ul>
+      <%- end -%>
+    
+      <%- unless current_user.pending_friends_for_me.empty? -%>
+      <h3>Friend Requests <span>from</span></h3>
+      <ul class="alphabet">
+      <%- for friend in current_user.pending_friends_for_me -%>
+        <li><%= link_to friend.login, friend %></li>
+      <%- end -%>
+      </ul>
+      <%- end -%>
+      
+    <h3>Quick Links</h3>
+    <ul>
+      <li><%= link_to 'Revenue Sharing', :controller => 'account', :action =>'edit' %></li>
+      <li><%= link_to 'Update my account email or password', :controller => 'account', :action => 'edit' %></li>
+      <li><%= link_to 'Send a private message', :controller => 'messages', :action => 'new' %></li>
+    </ul>

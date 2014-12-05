@@ -1,0 +1,13 @@
+      <li class="<%= cycle('even', 'odd') %>">
+        <%= image_tag mini.icon_filename %>
+        <%= link_to h(mini.title), mini %>
+        <span>
+			<%- if !defined? info or info == 'date' -%>
+				<%= relative_time mini.created_at %>
+			<%- elsif info == 'rated' -%>
+				<%= mini.rating_avg -%> stars
+			<%- elsif info == 'popular' -%>
+				<%= mini.views -%> views
+			<%- end -%>
+        </span>
+      </li>

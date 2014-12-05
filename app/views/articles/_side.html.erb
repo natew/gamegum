@@ -1,0 +1,10 @@
+    <div class="onethird">
+      <h3>About <span><%= (link_to 'Return to blog', articles_path) unless controller.action_name == 'index' %></h3>
+      <p>GameGum is a flash gaming community.  We are small and focused and aim to bring the highest quality flash game experience by creating the best game website possible.</p>
+      
+      <h3>Recent Posts</h3>
+      <%- for article in @recent do -%>
+        <h4><%= link_to article.title, article %> <span><%= relative_time article.created_at %></span></h4>
+        <p><%= truncate article.body, :length => 100 %></p>
+      <%- end -%>
+    </div>

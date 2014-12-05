@@ -1,0 +1,11 @@
+    <% content_for(:title, 'Submissions') %>
+    <div class="twothirds">
+      <%= render :partial => 'nav' %>
+    
+      <ul class="comments g">
+        <%= render :partial => 'games/game', :collection => @submissions %>
+      </ul>
+      <%= will_paginate @submissions %>
+    </div>
+    
+    <%= render :partial => 'side' %>

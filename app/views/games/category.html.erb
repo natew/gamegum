@@ -1,0 +1,14 @@
+<% content_for(:title, @category.title + ' Games') %>
+<%= render :partial => 'nav' %>
+
+  <div class="twothirds">
+    <h2><%= @category.title %> Games <span>sorted by views</span></h2>
+    <ul class="comments g">
+      <%= render :partial => 'game', :collection => @games %>
+    </ul>
+    
+    <br />
+    <%= will_paginate @games %>
+  </div>
+
+  <%= render :partial => 'side' %>

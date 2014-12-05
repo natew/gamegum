@@ -1,0 +1,25 @@
+  <%- unless controller.action_name =~ /friends|favorites/ %>
+  <ul class="nav">
+    <%= li 'Dashboard', { :controller => 'account', :action => 'index' }, :active => { :when => [['account'],['index']] } %>
+    <%= li 'Messages', inbox_messages_path(current_user.id), :active => { :when => [['messages'],[]] } %>
+    <%= li 'Edit Profile', :controller => 'account', :action => 'profile' %>
+    <%= li 'Edit Account', :controller => 'account', :action => 'edit' %>
+    <%= li 'My Content', { :controller => 'account', :action => 'games' }, :active => { :when => [['account'],['games','comments','posts']] } %>
+  </ul>
+  <%- end -%>
+
+  <%- if controller.controller_name == 'account' and controller.action_name =~ /comments|posts|games/ -%>
+
+  <ul class="subnav">
+    <%= li 'Games', :controller => 'account', :action => 'games' %>
+    <%= li 'Comments', :controller => 'account', :action => 'comments' %>
+    <%= li 'Posts', :controller => 'account', :action => 'posts' %>
+  </ul>
+  <%- elsif controller.controller_name == 'messages' -%>
+
+  <ul class="subnav">
+    <%= li 'Inbox', inbox_messages_path(current_user.id), :active => { :when => [['messages'], ['inbox']] } %>
+    <%= li 'Outbox', outbox_messages_path(current_user.id), :active => { :when => [['messages'], ['outbox']] } %>
+    <%= li 'Send Message', new_message_path(current_user.id), :active => { :when => [['messages'], ['new']] } %>
+  </ul>
+  <%- end -%>

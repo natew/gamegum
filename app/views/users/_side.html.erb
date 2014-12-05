@@ -1,0 +1,33 @@
+      <div class="onethird">
+	    <%- if logged_in? and current_user.is_friends_with? @cuser %>
+        <h3>You are friends with <%= @cuser.login %></h3>
+        <p><%= link_to "#{image_tag 'remove.png'} Remove Friend?".html_safe, { :controller => 'friends', :action => 'destroy', :id => @cuser.id  } %></p>
+      <%- end -%>
+        <h3>About <%= @cuser.login %></h3>
+         <dl>
+           <%= dt_dd 'Location', @cuser.location %>
+           <%= dt_dd 'Joined', relative_time( @cuser.created_at ) %>
+           <%= dt_dd 'Profile Views', number_with_delimiter(@cuser.views) %>
+           <%= dt_dd 'Friends', number_with_delimiter(@cuser.friends.size) %>
+           <%= dt_dd 'Posts', number_with_delimiter(@cuser.posts.size) %>
+           <%= dt_dd 'Comments', number_with_delimiter(@cuser.comments.size) %>
+           <%= dt_dd 'AIM', "<a href=\"aim:goim?screenname=#{@cuser.aim}\">#{@cuser.aim}</a>" unless @cuser.aim.nil? %>
+           <%= dt_dd 'MSN', @cuser.msn %>
+         </dl>
+     
+     <%- unless @cuser.favorites.empty? -%>
+         <%- reset_cycle -%>
+         <h3>Latest Favorites <span><%= @cuser.favorites.size %> total</span></h3>
+         <ul class="lists">
+           <%= render :partial => 'games/list', :collection => @latest_favorites, :locals => { :info => 'popular' } %>
+         </ul>
+     <%- end -%>
+    
+     <%- unless @cuser.games.empty? -%>
+         <%- reset_cycle -%>
+         <h3>Latest Submissions <span><%= @cuser.games.size %> total</span></h3>
+         <ul class="lists">
+           <%= render :partial => 'games/list', :collection => @latest_submissions, :locals => { :info => 'popular' } %>
+         </ul>
+     <%- end -%>
+      </div>

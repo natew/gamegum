@@ -1,0 +1,37 @@
+<% content_for(:title, 'Edit Account') %>
+<%= render :partial => 'nav' %>
+
+    <div class="twothirds">
+      <h2>Edit Account</h2>
+      <%= form_for current_user, :url => { :action => 'edit' } do |f| %>
+        <%= render 'shared/error_messages', :target => current_user %>
+        
+        <fieldset>
+          <legend>Revenue Sharing</legend>
+          <%= label :user, :adsense, 'Adsense Code', :class => 'inline' %>
+          <%= f.text_field :adsense %>
+          <p class="inline">Earn up to 50% revenue when you enter your <%= link_to 'adsense id', '/rules' %>.</p>
+        </fieldset>
+        
+        <fieldset>
+          <legend>Email &amp; Password</legend>
+          <%= label :user, :email, 'Email', :class => 'inline' %>
+          <%= f.text_field :email %>
+          <%- unless current_user.email_confirmed -%>
+            <p class="inline"><strong>Your email is not confirmed:</strong> <%= link_to 'resend verification email', :action => 'resend' %>.</p>
+          <%- end -%><br />
+
+          <%= label :user, :password, 'New Password', :class => 'inline' %>
+          <%= f.password_field :password, :autocomplete => 'off' %><br />
+        
+          <%= label :user, :password_confirmation, 'New Password Verify', :class => 'inline' %>
+          <%= password_field :user, :password_confirmation, { :autocomplete => 'off' } %>
+        </fieldset>
+
+        <%= submit_tag 'Update', :class => 'submitbutton inline' %>
+      <% end %>
+    </div>
+
+    <div class="onethird">
+      <%= render :partial => 'side' %>
+    </div>

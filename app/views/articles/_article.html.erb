@@ -1,0 +1,5 @@
+    <h4 class="title"><%= link_to article.title, article %> <span>&middot; <%= link_to 'Nathan Wienert', article.user, :rel => 'author' %> &middot; <%= relative_time article.created_at %></span></h4>
+    <p class="description">
+      <%= truncate article.body, :length => 420 %>
+      <br />
+    </p>

@@ -1,0 +1,8 @@
+    <% content_for(:title, 'Blog') %>
+    <div class="twothirds">
+      <h2>GameGum Blog</h2><br />
+      <%= render :partial => 'article', :collection => @articles, :full => true %>
+      <%= will_paginate @articles %>
+    </div>
+    
+    <%= render 'side' %>

@@ -1,0 +1,15 @@
+<% content_for(:title, @show_message.subject) %>
+<%= render :partial => 'account/nav' %>
+
+    <div class="twothirds">
+      <h2>View Message</h2>
+      <%= render :partial => 'shared/flash' %>
+      <h3><%= @show_message.subject %></h3>
+       <%= simple_format(@show_message.body) %>
+       
+       <h3>Reply</h3>
+       <%= render 'form' %>
+    </div>
+    
+    <%= render :partial => 'side' %>
+  </div>

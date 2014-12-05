@@ -1,0 +1,15 @@
+    <% content_for(:title, 'Community Forums') %>
+    
+    <%= render :partial => 'nav' %>
+
+	<div class="twothirds">
+		<h2>Latest discussions</h2>
+        <%= render :partial => 'latest_discussion', :collection => @recently %>
+    </div>
+    
+    <div class="onethird">
+    	<h3>Community Pulse</h3>
+    	<ul class="pulse">
+    		  <%= render :partial => 'shared/pulse', :collection => @pulse %>
+    	</ul>
+    </div>

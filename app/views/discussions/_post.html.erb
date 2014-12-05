@@ -1,0 +1,23 @@
+        <tr id="post_<%= post.id %>">
+          <td rowspan="2" class="top left">
+            <%= link_to image_tag(post.user.avatar.url), post.user, :class => 'icon' %>
+            <h4><%= link_to post.user.login, post.user %></h4>
+        <span>Posts: <%= post.user.posts.count %></span>
+        <span>GumPoints: <%= post.user.gumpoints %></span>
+          </td>
+          <td class="top left">
+            <%= simple_format(post.message).html_safe %>
+          </td>
+        </tr>
+        <tr class="post_bottom">
+          <td class="actions">
+            <ul class="userinfo">
+              <li>Posted <%= relative_time post.created_at %></li>
+            </ul>
+            <ul>
+              <li><%= link_to '&#35;'.html_safe, request.url + "#post_#{post.id}" %></li>
+              <% if logged_in? and (current_user.is_admin? or post.user == current_user) %><li><%= link_to(image_tag('edit.png'), { :controller => 'discussions', :action => 'edit', :id => post.id }) %></li><% end %>
+              <li><%= link_to image_tag('pm.png'), :controller => 'messages', :action => 'new', :id => post.user.id %></li>
+            </ul>
+          </td>
+        </tr>

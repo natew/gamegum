@@ -1,0 +1,11 @@
+<% content_for(:title, 'Favorites') %>
+    <div class="twothirds">
+      <%= render :partial => 'nav' %>
+      
+      <ul class="comments g">
+        <%= render :partial => 'games/game', :collection => @favorites %>
+      </ul>
+      <%= will_paginate @favorites %>
+    </div>
+
+    <%= render :partial => 'side' %>

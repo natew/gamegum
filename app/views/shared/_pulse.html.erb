@@ -1,0 +1,25 @@
+      <li class="<%= cycle('odd', 'even') %>">
+        <h4>
+          <b class="pict">
+            <%- if pulse.category == 'play' -%>4
+            <%- elsif pulse.category == 'game' -%>{
+            <%- elsif pulse.category == 'rating' -%>S
+            <%- elsif pulse.category == 'comment' -%>w<% end %>
+          </b>
+          <% unless defined? pulse.user_login %>
+            <%= link_to pulse.user.login, pulse.user %>
+          <% else %>
+            <%= link_to pulse.user_login, user_path("#{pulse.user_id}%2F#{pulse.user_login}") %>
+          <% end %>
+          <%- if pulse.category == 'play' -%> is playing 
+          <%- elsif pulse.category == 'game' -%> submitted 
+          <%- elsif pulse.category == 'rating' -%> rated 
+          <%- elsif pulse.category == 'comment' -%> commented on <% end %>
+          <%= link_to "#{image_tag(pulse.game.icon.url, :class=> 'icon')} #{pulse.game.title}".html_safe , pulse.game unless pulse.game.nil? %>
+          <%= stars(pulse.stars) if pulse.category == 'rating' %>
+          <span><%= relative_time pulse.created_at %></span>
+        </h4>
+        <%- unless pulse.description.nil? -%>
+        <p><%= truncate(pulse.description, :length => ( !defined?(trunc) ? 80 : trunc ) ) %></p>
+        <%- end -%>
+      </li>

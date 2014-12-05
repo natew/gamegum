@@ -1,0 +1,9 @@
+# Use the README file as a reference to customize settings.
+
+Discussion:
+  fields:
+    default: topic_id, user, title, message, views, locked, sticky, created_at
+    form: topic_id, user_id, title, message, views, locked, sticky
+  relationships: posts
+  order: created_at
+  application: Application

@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Topic:
+  fields:
+    default: title, icon, description, active
+    form: title, icon, description, active
+  relationships: discussions
+  application: Application

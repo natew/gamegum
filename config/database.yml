@@ -1,0 +1,41 @@
+development:
+    adapter: postgresql
+    encoding: utf8
+    database: gamegum_development
+    username:
+    password:
+    host: 127.0.0.1
+    port: 5432
+
+test:
+    adapter: postgresql
+    encoding: utf8
+    database: gamegum_test
+    username:
+    password:
+    host: 127.0.0.1
+    port: 5432
+
+production:
+    adapter: postgresql
+    encoding: utf8
+    database:
+    username:
+    password:
+    host: localhost
+
+legacy:
+    adapter: mysql
+    encoding: utf8
+    database: gamegum_old
+    username: root
+    password:
+    host: 127.0.0.1
+
+legacy_users:
+    adapter: mysql
+    encoding: utf8
+    database: gamegum_old_users
+    username: root
+    password:
+    host: 127.0.0.1

@@ -1,0 +1,6 @@
+    <li class="<%= cycle('even', 'odd') %>">
+      <%= image_tag mini.avatar.url %>
+      <%= link_to h(mini.login), mini %>
+      <span><%= pluralize mini.gumpoints, 'gumpoint' %></span>
+    </li>
+    

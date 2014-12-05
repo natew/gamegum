@@ -1,0 +1,7 @@
+  <li style="background: #000 url(/screens/<%= feat.screenshot %>) no-repeat top left;">
+    <%= link_to "<strong>#{feat.title}</strong>".html_safe, feat %>
+    <div class="description">
+      <span><%= stars_for feat %></span>
+      <p><%= feat.description.html_safe %></p>
+    </div>
+  </li>

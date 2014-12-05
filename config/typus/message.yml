@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Message:
+  fields:
+    default: receiver_deleted, receiver_purged, sender_deleted, sender_purged, read_at, receiver_id, sender_id, subject, body
+    form: receiver_deleted, receiver_purged, sender_deleted, sender_purged, read_at, receiver_id, sender_id, subject, body
+  relationships: 
+  application: Application

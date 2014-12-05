@@ -1,0 +1,8 @@
+<h3><%= pluralize number_with_delimiter(@game.comments.size), 'Comment' %></h3>
+<%= render :partial => 'shared/flash' %>
+
+<%- if logged_in? -%>
+  <%= render :partial => @comment = Comment.new, :locals => { :button_name => 'Post Comment' } %>
+<%- end -%>
+
+<%= render :partial => 'games/comments_list' %>

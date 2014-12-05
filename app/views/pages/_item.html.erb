@@ -1,0 +1,5 @@
+<div class="page">
+  <%= link_to image_tag(item.image.url, :class => 'avatar'), play_path(item.slug) unless item.image.nil? %>
+  <h4><%= link_to item.title, play_path(item.slug) %></h4>
+  <p><%= truncate item.description, :length => 100 %></p>
+</div>

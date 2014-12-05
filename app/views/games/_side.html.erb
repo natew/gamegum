@@ -1,0 +1,30 @@
+<div class="onethird">
+
+  <h3>Categories</h3>
+  <ul class="tags lists double">
+  <%- @categories.each do |cat| -%>
+    <%= li "#{cat.title}", category_path(cat) %>
+  <%- end -%>
+  </ul>
+  
+  <%= render :partial => 'shared/ad_square_big' %>
+
+  <h3>Top Tags <span><%= link_to 'More&nbsp;&raquo;'.html_safe, '/games/tags' %></span></h3>
+  <ul class="tags">
+    <% tag_cloud(@top_tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class| %>
+      <li><%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %></li>
+    <% end %>
+  </ul>
+  
+  <h3>Show Content With</h3>
+  <ul class="tags">
+    <%= li "Violence", params.merge({ :violence => ( params[:violence] == 'on' ? 'off' : 'on' ) }), :active => { :when => /violence=on/ }, :class => 'tag3' %>
+    <%= li "Language", params.merge({ :language => ( params[:language] == 'on' ? 'off' : 'on' ) }), :active => { :when => /language=on/ }, :class => 'tag3' %>
+    <%= li "Adult", params.merge({ :nudity => ( params[:nudity] == 'on' ? 'off' : 'on' ) }), :active => { :when => /nudity=on/ }, :class => 'tag3' %>
+  </ul>
+  
+  <h3>Latest Games</h3>
+  <ul class="lists">
+    <%= render :partial => 'list', :collection => @recent, :locals => { :info => 'date' } %>
+  </ul>
+</div>

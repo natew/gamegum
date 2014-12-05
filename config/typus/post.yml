@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Post:
+  fields:
+    default: discussion_id, user_id, message, active
+    form: discussion_id, user_id, message, active
+  relationships: 
+  application: Application

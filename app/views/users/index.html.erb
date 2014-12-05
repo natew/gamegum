@@ -1,0 +1,17 @@
+<% content_for(:title, 'Top Users') %>
+<%= render :partial => 'community_nav' %>
+
+<div class="contain">
+  <h2>Top Users</h2>
+  <table class="forum small">
+    <tr class="head">
+      <td width="5%"></td>
+      <td width="5%"></td>
+      <td width="40%" class="left"><h3>User</h3></td>
+      <td width="20%"><h3>Joined</h3></td>
+      <td width="15%"><h3>Gumpoints</h3></td>
+    </tr>
+    <%= render :partial => 'user_tr', :collection => @users %>
+  </table>
+   <%= will_paginate @users %>
+</div>

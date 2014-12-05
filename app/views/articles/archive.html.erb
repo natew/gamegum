@@ -1,0 +1,13 @@
+<% content_for(:title, 'Archive') %>
+<%= render :partial => 'nav' %>
+
+  <div class="contain">
+    <div class="twothirds">
+      <%= render :partial => 'article', :collection => @articles %>
+      <%= will_paginate @articles %>
+    </div>
+    
+    <div class="onethird">
+	
+    </div>
+  </div>

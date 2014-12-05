@@ -1,0 +1,5 @@
+      <li>
+        <% second = info == 'date' ? relative_time(list.created_at) : number_with_delimiter(list.views)+" views" %>
+        <%= (link_to "#{image_tag list.icon.url} #{h(list.title)}".html_safe, list, :title => second, :class => 'rtip') unless list.nil? %>
+      </li>
+      

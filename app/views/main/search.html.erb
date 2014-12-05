@@ -1,0 +1,32 @@
+  <% content_for(:title, "Search for #{@query}") %>
+
+  <div class="twothirds">
+      <h2>Search Results</h2>
+      <% if @query.blank? %>
+        <h3>No search entered</h3>
+      <% else %>
+         <h3>&quot;<strong><%= @query %></strong>&quot; returned <%= pluralize @games.size, 'game' %> and <%= pluralize @users.size, 'user' %></h3>
+      <% end %>
+
+  <% unless @query.blank? %>
+	  <%- unless @games.empty? -%>
+	    <ul class="comments g">
+          <%= render :partial => 'games/game', :collection => @games %>
+	    </ul>
+
+	  <%- end -%>
+	<% end %>
+    </div>
+    
+    <div class="onethird">
+    <% unless @query.blank? %>
+      <%- unless @users.empty? -%>
+	    <h3>Users matching "<%= @query %>"</h3>
+	    <ul>
+	  <%- for user in @users -%>
+	      <li><%= link_to user.login, user %></li>
+	  <%- end -%>
+	    </ul>
+	  <%- end -%>
+	<% end %>
+    </div>

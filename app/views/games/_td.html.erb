@@ -1,0 +1,21 @@
+      <tr class="<%= cycle('even', 'odd') %>">
+        <td>
+          <%= link_to image_tag(td.icon.url), td, :class => 'icon' %>
+        </td>
+        <td class="left top">
+          <h4><% if @edit %><%= link_to td.title, edit_game_path(td) %><% else %><%= link_to td.title, td %><% end %></h4>
+          <p><%= truncate td.description, :length => 100 %></p>
+        </td>
+        <td><%= stars_for td %> <br /><span><%= td.rating_avg %> stars by <%= pluralize td.rating_count, 'person' %></span></td>
+        <td><%= number_with_delimiter td.views %></td>
+        <td><%= relative_time td.created_at %> <br /><span>by <%= link_to td.user.login, td.user %></span></td>
+        <%- if @edit -%>
+          <td>
+            <%= link_to 'Remove', td, { :class => 'modal submitbutton', :rel => "remove_game_#{td.id}" } %>
+            <div id="remove_game_<%= td.id %>_modal" class="modal_window">
+              <h2>Are you sure you'd like to delete <%= td.title %>?</h2><br />
+              <%= link_to 'Remove', game_path(td), :method => :delete, :class => 'submitbutton' %>
+            </div>
+          </td>
+        <%- end -%>
+      </tr>

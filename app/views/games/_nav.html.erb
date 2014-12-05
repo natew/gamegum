@@ -1,0 +1,11 @@
+    <ul class="nav">
+      <%= li 'Browse Recent', games_path, :active => { :when => [['games'],['index','category']] }  %>
+      <%= li 'Most Views', viewed_games_path %>
+      <%= li 'Top Rated', rated_games_path  %>
+      <%= li 'Most Favorited', favorites_games_path  %>
+      <%= li 'Most Commented', discussed_games_path  %>
+      <%= li 'Now Playing', live_games_path  %>
+      <%= li 'Featured', featured_games_path  %>
+      <%= li 'Tags', tags_games_path  %>
+      <%= li 'Topics', pages_games_path  %>
+    </ul>

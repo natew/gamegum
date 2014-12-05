@@ -1,0 +1,14 @@
+<% content_for(:title, "Play #{@page.title}") %>
+
+      <div class="contain">
+        <h2><%= @page.title %></h2>
+        <p><%= @page.description %></p>
+        
+        <%= render 'shared/ad_leaderboard' %>
+        
+        <%= image_tag @page.image.url, :class => 'avatar' unless @page.image.nil? %>
+
+        <ul class="comments g float">
+          <%= render :partial => 'games/game', :collection => @page.games %>
+        </ul>
+      </div>

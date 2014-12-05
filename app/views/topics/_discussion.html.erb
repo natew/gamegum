@@ -1,0 +1,20 @@
+      <tr class="<%= cycle('even', 'odd') %>">
+        <td class="center"><%= (discussion.posts.count > 0) ? image_tag('page_white_text.gif') : image_tag('page_white.gif') %></td>
+        <td class="title left">
+          <h4><% if discussion.sticky %><strong>Sticky: </strong><% end %><%= link_to discussion.title, topic_discussion_path(discussion.topic, discussion) %></h4>
+          <%= strip_tags discussion.message[0, 120] %>
+        </td>
+        <td><%= link_to discussion.user.login, discussion.user %><br />
+        <span><%= relative_time discussion.created_at %></span></td>
+        <td>
+        <%- if discussion.posts.count > 0 -%>
+          <% @last = Post.first(:conditions => "discussion_id = #{discussion.id}", :order => 'created_at ASC') %>
+          <%= link_to @last.user.login, @last.user %><br/>
+          <span><%= relative_time @last.created_at %></span></td>
+        <%- else -%>
+          No posts
+        <%- end -%>
+        </td>
+        <td class="center"><%= discussion.posts.count %></td>
+        <td class="center"><%= discussion.views %></td>
+      </tr>

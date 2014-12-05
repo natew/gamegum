@@ -1,0 +1,26 @@
+  <% content_for(:title, 'Contact Us') %>
+  <div class="twothirds">
+    <h2>Contact Us</h2>
+    <% form_tag :action => 'send_contact_form' do %>
+        <label for="message">
+          Message <span>Required</span>
+        </label>
+        <%= text_area "author", "message", :rows => 8 %><br />
+        
+      <fieldset>
+        <legend>Your Information</legend>
+        <label class="inline" for="name">
+          Name <span>Required</span>
+        </label>
+        <%= text_field "author", "name" %><br />
+
+        <label class="inline" for="email">
+          Email <span>Required</span>
+        </label>
+        <%= text_field "author", "email" %><br />
+        
+      </fieldset>
+
+      <%= submit_tag "Send Message" %>
+    <% end %>
+  </div>

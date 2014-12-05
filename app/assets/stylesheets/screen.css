@@ -1,0 +1,2081 @@
+/* Base Styling
+--------------------------------------------- */
+ul, dl, li, h1, h2, h3, body {margin: 0; padding: 0;}
+ul {list-style: none;}
+img {border: 0;}
+br { clear: both; }
+form div:first-child { display: none !important; }
+div, ul, form { zoom: 1; position: relative; }
+p, ul, form, .bubble, .sponsor {
+    margin: 0 0 20px 0;
+    line-height: 1.5em;
+}
+
+html { height: 100%; }
+body {
+    font: 75%/140%  'Helvetica Nueue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    background: #c3ddf1;
+    color: #4d6372;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#body_contain {
+    padding: 58px 0 0;
+}
+
+.field_with_errors:after { display: none; }
+div:after, ul:after, form:after, dl:after, .comments li:after {
+    content: ".";
+    display: block;
+    overflow: hidden;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    line-height: 0em;
+}
+
+/*  link colors */
+/* links */
+#content a:hover,.comments.g h4 a:hover { color: #000; }
+.comments.g a,.page a,.quarter.m h3 a,.alphabet li a,.pagination a,a {
+    color: #255ac9;
+    text-shadow: 0 1px #e4f4ff;
+    outline: 0;
+    text-decoration: none;
+    -webkit-transition: all .2s ease-out;
+}
+
+/* alternate links */
+.comments.g a, .page a, .quarter.m h3 a { color: #0c9813; }
+
+/* alternate text color */
+h2 span,h3 span,h4 span,#main .games span,.pulse p,.comments.g li span { color: #5f82aa; }
+
+a.center {display: block;}
+.center {text-align: center;}
+.left {text-align: left;}
+.hidden {visibility: hidden; height: 0; width: 0;}
+
+table tr.odd, .comments .odd { background: url(../assets/dim20.png); }
+.bubble { background: #e9e9e9 url(../assets/head_fade.png) repeat-x 0 -30px; }
+
+.notice {
+    display: block;
+    padding: 10px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+
+
+/* Fonts / colors
+--------------------------------------------- */
+h2, h3, h4, .feat li a, #head, #footer {
+  font-family: 'Avenir';
+}
+
+p {
+    font-size: 13px;
+}
+
+.pict {
+    font-family: 'Pictos', none;
+    font-size: 16px;
+    color: #555;
+    text-shadow: 0 1px #fff;
+    margin: 0 5px -10px 0;
+    float: left;
+}
+
+
+/* Borders, base lists
+--------------------------------------------- */
+legend, label.checkbox, h2 a, h3 a, .comments.g li, .submitbutton, .nav, h4.rated, #share, .percent, .percent span, .button, .ui-dialog .ui-dialog-content, table .actions, dl, .fail, .fail h4, .tags li a, #head .nav2 li a, .avatar, .comments li, .comments.g img, .feat li, .feat li a, .feat li a strong, .feat li .description, .slidedown, .lists li img, .pulse a img, fieldset, .tipsy-inner, .leaderboard  {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    behavior: url(../stylesheets/PIE.htc);
+}
+
+.avatar, .classics li, .nav {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+#head #query, .alphabet li a, .pagination a, .bubble, h4.obox, .leaderboard, textarea, select, input[type="password"], input[type="search"], input[type="text"], #head, #bottom_bar, .slidedown, #head .nav2 li a.grey:hover, .submitbutton.grey:hover, #head .nav2 li a, #head .nav2 li a.grey, .submitbutton.grey, .avatar, #share, .classics li, .nav {
+  behavior: url(../stylesheets/PIE.htc);
+}
+
+.twothirds li {
+    background: url(../assets/bullet.gif) no-repeat 0 6px;
+    padding: 3px 0 3px 14px;
+}
+
+/* Headers
+--------------------------------------------- */
+h2, h3 {
+    font-size: 26px;
+    line-height: 1em;
+    margin: 4px 0 10px 0;
+    color: #20456E;
+    position: relative;
+    clear: both;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h2.inline {margin: 0 0 -39px 0;}
+
+h3 a:hover {
+  background: url(../assets/dim_light.png);
+  border: 1px solid #fff;
+}
+
+h3.inline a { display: inline; }
+h2 a:hover { background: url(../assets/dim.png); }
+h2 a, h3 a {
+    display: block;
+    font-size: 15px;
+    padding: 4px;
+    margin: 0 0 -6px 0;
+    font-weight: 500;
+    background: url(../assets/dim20.png);
+    text-transform: none;
+    border: 1px solid transparent;
+}
+
+h4 {
+    font-size: 15px;
+    line-height: 1.5em;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    text-shadow: 0 1px #000;
+}
+
+h3 span a, h2 span a {
+    display: inline;
+    padding: 2px 6px;
+    font-size: 14px;
+    color: #fff;
+}
+
+h2 span, h3 span, h4 span {
+    display: inline-block;
+    position: relative;
+    top: -3px;
+    font-size: 75%;
+    left: 2px;
+    font-weight: normal;
+}
+
+/* Page
+--------------------------------------------- */
+#head div, #content, .inner {
+    width: 1025px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#content {
+    padding: 10px 15px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.onethird,
+.twothirds,
+.third,
+.quarter,
+.half,
+.contain {
+    float: left;
+    padding: 10px;
+    position: relative;
+}
+
+.contain { float: none; }
+.half { width: 444px; }
+
+.onethird h2 { margin-top: -10px; }
+.quarter.m h3 { margin-bottom: 12px; }
+.quarter.m h3.nomarg { clear: both; margin: 35px 0 8px 0; }
+.quarter.m h3 a strong { font-weight: normal; }
+.quarter.m {
+    border-top: none;
+    width: 185px;
+}
+
+.quarter {
+    width: 265px;
+}
+
+.twothirds.game { padding: 0; }
+.twothirds {
+    float: left;
+    width: 649px;
+    overflow: hidden;
+}
+
+.onethird {
+    width: 336px;
+    position: relative;
+}
+
+.onethird li {
+    padding: 0;
+}
+
+.box ul { margin: 0; }
+.box {
+    padding: 8px 10px 0;
+    margin: -5px 0 30px -5px;
+}
+
+.intro h3 { color: #fff; text-shadow: 0 1px #888; font-size: 2em; font-weight: bold; line-height:1.4em; margin-bottom:5px; }
+.box.intro:hover { background-image: none; background-color: #F2BA24; }
+.box.intro {
+    background: #F2BA24;
+    color: #fff;
+    margin: 0;
+    padding: 3px 0 0;
+    text-align: center;
+    font-size: .8em;
+}
+
+.intro h3 span a { position: relative; top: -2px; padding: 4px 6px; margin: 0 -2px; }
+.intro h3 span {
+    color: #fff;
+    font-weight: bold;
+    top: 0;
+    font-size: 16px;
+}
+
+/* Head Elements
+--------------------------------------------- */
+#head, #bottom_bar, .slidedown {
+    background: #aaa url(../assets/head_fade.png) repeat-x top left;
+    -webkit-box-shadow: 0 2px 8px #333;
+    -moz-box-shadow: 0 2px 8px #333;
+    box-shadow: 0 2px 8px #333;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    z-index: 999;
+    top: 0;
+}
+
+#head h1 {
+    float: left;
+    width: 192px;
+}
+
+#head h1 a {
+    float: left;
+    height: 56px;
+    width: 192px;
+    text-indent: -9000em;
+    display: block;
+    background: url(../assets/gamegum_logo.png) no-repeat 0 7px;
+    position: relative;
+}
+
+#head #nav {
+    font-size: 18px;
+    margin: 0;
+    float: left;
+    background: url(../assets/nav_sep.png) no-repeat right 7px;
+}
+
+#head #nav li {
+    float: left;
+    background: url(../assets/nav_sep.png) no-repeat 0 7px;
+}
+
+#head #nav li.active a { color: #0b6295; }
+#head #nav li a:hover, #head h1:hover { color: #000; background: url(../assets/black_fade_up.png) repeat-x top; }
+#head #nav li a {
+    text-shadow: 0 1px #fff;
+    line-height: .9em;
+    padding: 20px 14px;
+    text-align: center;
+    font-weight: bold;
+    float: left;
+    color: #444;
+}
+
+#head a.restriction:hover { color: #777; }
+#head a.restriction {
+  position: absolute;
+  bottom: 22px;
+  left: 470px;
+  font-size: 11px;
+  color: #aaa;
+  padding: 1px;
+  line-height: 1em;
+  text-decoration: underline;
+}
+
+#footer a.icon.off { background-image: url(../assets/lightbulb_off.gif); }
+#footer a.icon {
+    position: absolute;
+    top: 5px;
+    left: 445px;
+    background: url(../assets/lightbulb.gif) no-repeat center center;
+    padding: 4px;
+    width: 16px;
+    height: 16px;
+    text-indent: -3000em;
+    overflow: hidden;
+}
+
+#head .nav2 {
+    float: right;
+    width: 234px;
+    margin: 14px 0 0 0;
+    text-align: right;
+    height: 30px;
+    overflow: hidden;
+}
+
+#head .nav2 li a { float: right; }
+#head .nav2 li img { height: 13px; margin: -1px 0 -2px 0; }
+#head .nav2 li a {
+    background: #9eb8fd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#bed0fe), to(#99b5fd));
+    background: -moz-linear-gradient(top,  #bed0fe,  #99b5fd);
+    -pie-background: linear-gradient(#bed0fe,  #99b5fd);
+    border-top: 1px solid #9fb4e7;
+    border-bottom: none;
+    -webkit-box-shadow: #fff 0 1px 0;
+    -moz-box-shadow: #fff 0 1px 0;
+    box-shadow: #fff 0 1px 0;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 1;
+    padding: 7px 8px 8px;
+    text-align: center;
+    text-shadow: 0 -1px 1px #777;
+    margin: 0 1px;
+}
+
+#head .nav2 li a:hover {
+    background: #bad3ff;
+    cursor: pointer;
+}
+
+#head .nav2 li a.grey, .submitbutton.grey {
+    background: #999;
+    background: -moz-linear-gradient(0% 100% 90deg, #ddd, #999);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ddd), to(#999));
+    -pie-background: linear-gradient(#ddd,  #999);
+    border-top: 1px solid #ccc;
+}
+
+#head .nav2 li a.grey:hover, .submitbutton.grey:hover {
+    background: #666;
+    background: -moz-linear-gradient(0% 100% 90deg, #ccc, #fff);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#aaa));
+    -pie-background: linear-gradient(#eee,  #aaa);
+}
+
+#head form {
+    float: right;
+    color: #aaa;
+    text-shadow: 0 1px #fff;
+    font-size: 12px;
+    position: relative;
+    text-align: right;
+    margin: 16px 0 0;
+    padding: 0;
+}
+
+#head #query:hover { border-color: #555; }
+#head #query:focus { background-color: 0 -20px; color: #444; }
+#head #query {
+    border: 1px solid #aaa;
+    outline: 0;
+    color: #777;
+    height: 30px;
+    padding: 9px 6px;
+    margin: -4px 10px 0 5px;
+    float: right;
+    width: 160px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#head #searchbutton {
+    background: url(../assets/search.png) no-repeat top;
+    border: none;
+    padding: 0;
+    margin: 0 5px 0 -4px;
+    float: right;
+    width: 24px;
+    height: 24px;
+    text-indent: -3000em;
+    overflow: hidden;
+}
+
+/* SLIDEDOWN MENUS */
+#slidedown_menus .inner { position: relative; }
+#slidedown_menus {
+    position: fixed;
+    z-index: 997;
+    width: 100%;
+    top: 0;
+}
+
+.slidedown.hovered {
+  z-index: 10000;
+}
+.slidedown.community { left: 308px; }
+.slidedown.signup { left: 510px; }
+.slidedown.login { left: 530px; }
+.slidedown {
+    position: absolute;
+    left: 192px;
+    top: -240px;
+    width: 320px;
+    z-index: 998;
+    overflow: hidden;
+    background-color: #eee;
+    padding: 30px 6px 10px 10px;
+    -webkit-box-shadow: 0 2px 6px #555;
+    -moz-box-shadow: 0 2px 6px #555;
+    box-shadow: 0 2px 6px #555;
+    font-weight: bold;
+    color: #999;
+}
+
+.slidedown label {
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+    text-shadow: none;
+}
+
+.slidedown p {
+    font-size: 12px;
+    line-height: 16px;
+    text-shadow: none;
+}
+
+.slidedown .fail { display: none; }
+.slidedown form { margin: 0 0 10px 0; }
+.slidedown form label {
+    width: 90px;
+    font-size: 14px;
+}
+
+.slidedown form input.text {
+    width: 170px;
+}
+
+.slidedown p.inline {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.slidedown .submitbutton.inline {
+    margin-left: 98px;
+}
+
+.slidedown ul {
+    margin: -10px 0 0;
+}
+
+.slidedown li.full { width: 100%; }
+.slidedown li {
+    display: block;
+    width: 143px;
+}
+
+.slidedown li img {
+    display: inline-block;
+    margin: 0 6px -2px 0;
+}
+
+.slidedown li.cat { margin: 0; width: 100px; }
+.slidedown li { float: left; margin: 4px 12px 0 0; }
+.slidedown li.cat a { color: #999; font-size: 12px; padding: 4px; height: auto; }
+.slidedown li a:hover { color: red; }
+.slidedown li a {
+    color: #000;
+    padding: 8px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.1em;
+    text-shadow: none;
+    text-decoration: none;
+    display: block;
+}
+
+.slidedown hr {
+    border: none;
+    padding: 10px 0 0;
+    margin: 10px 0 0;
+    clear: both;
+    display: block;
+}
+
+#flash {
+    top: 56px;
+    left: 50%;
+    width: 300px;
+    margin-left: -200px;
+    position: fixed;
+    text-align: right;
+    z-index: 996;
+}
+
+#flash h4 {
+    display: inline-block;
+    color: yellow;
+    background: url(../assets/dim80.png);
+    padding: 4px 10px;
+    position: relative;
+    z-index: 1000;
+}
+
+
+/* Page Structure & Base Styles
+--------------------------------------------- */
+#network {
+  margin-bottom: 40px;
+}
+#network li {
+  display: inline;
+  margin: 20px;
+}
+
+#footer {
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    clear: both;
+    background: #000;
+    color: #999;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#footer ul { float: left; margin: 0; }
+#footer li { float: left; }
+#footer li.pict a { font-size: 20px; font-weight: normal; padding: 8px; margin: 1px 0 0; }
+#footer a {
+    margin: -2px 0 0;
+    float: left;
+    padding: 12px 18px;
+    color: #fff;
+    text-shadow: 0 1px #000;
+}
+
+#footer span {
+    font-size: 11px;
+    padding: 14px 0;
+    float: right;
+}
+
+.nav.top { position: absolute; top: 10px; right: 20px; }
+.nav {
+    font-size: 14px;
+    clear: both;
+    margin: 0px 10px 20px;
+    z-index: 10000;
+    padding: 0 15px;
+    background: url(../assets/dim20.png);
+    line-height: 1.4em;
+}
+
+.nav h3 { margin: 8px 8px -22px 4px; font-size: 14px; font-weight: bold; text-transform: uppercase; color: #000;}
+.nav li { float: left; background: none; padding: 0; }
+.nav a:hover { background: url(../assets/dim.png); color: #fff; }
+.nav a {
+    padding: 10px;
+    float: left;
+    font-size: 1.1em;
+    color: #555;
+  }
+
+.nav li.active a {
+    font-weight: bold;
+    color: #fff;
+    background: url(../assets/dim.png);
+}
+
+.twothirds .head_info { padding: 0 0 15px 0; margin: 0 -8px; }
+.head_info {
+    padding: 0 0 10px;
+    margin: -10px 0;
+}
+
+.head_info .onethird.game h2 { font-weight: bold; line-height: .9em; }
+.head_info .onethird {
+  width: 292px;
+  padding: 12px 5px 5px 0;
+  min-height: 85px;
+}
+
+.head_info p { margin: -10px 0 0; font-size: 11px; }
+.head_info .twothirds p { margin: -4px 0 0 1px; }
+.head_info h2 {
+    margin: 0 0 8px 0;
+    clear: none;
+}
+
+.head_info .subnav {
+    padding: 4px 15px;
+    margin: -4px -15px 0 -15px;
+    border: none;
+    clear: none;
+}
+
+.subnav {
+    display: block;
+    clear: both;
+    margin: 10px 0 0 0;
+    padding: 2px 0 0 22px;
+    font-size: 14px;
+}
+
+.twothirds .subnav {
+    margin: -10px 0 5px 0;
+}
+
+.subnav li {
+    padding: 0 3px;
+    margin: 0;
+    background: none;
+    float: left;
+}
+
+.subnav a img {margin: -1px 0 -2px 2px;}
+.subnav a { padding: 4px; line-height: 2em; }
+.subnav a:hover {text-decoration: underline;}
+
+.subnav .active a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+}
+
+pre {
+    font: 12pt/1.5em Consolas, Monaco, "Courier New";
+    padding: 4px 8px;
+    margin-left: 12px;
+    color: #fff;
+    border-left: 4px solid #666;
+    display: block;
+}
+
+.lists {
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: -2px;
+}
+
+#content .lists.double li { width: 46%; float: left; margin: 2px 4px; }
+#content .lists.double li a { padding: 0 8px; }
+.lists li.active a { color: #fff; font-weight: bold; }
+.lists li a {
+    display: block;
+    padding: 4px 0;
+    font-size: 14px;
+}
+
+.lists li img, .pulse a img {
+    width: 28px;
+    height: 28px;
+    margin: 0 3px -9px 0;
+}
+
+.lists a:hover span { display: block; }
+.lists a span {
+    line-height: 3em;
+    display: none;
+    float: right;
+    font-size: .9em;
+    color: #aaa;
+    font-weight: normal;
+}
+
+.feat {
+    clear: both;
+    margin: 0 0 20px 0;
+}
+
+.feat li {
+    float: left;
+    margin: 0 0 10px 0;
+    overflow: hidden;
+    position: relative;
+    height: 140px;
+    width: 100%;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;
+}
+
+.feat li.clear, .feat li.clear:hover {
+    float: none;
+    margin: 0 0 4px 10px;
+}
+
+.feat li a:hover strong, #footer a:hover { color: #fff; }
+.feat li a {
+    display: block;
+    height: 140px;
+    overflow: hidden;
+    text-shadow: none;
+    font-size: 24px;
+    color: #fff;
+    text-shadow: 0 2px 4px #000;
+    position: relative;
+    z-index: 2;
+}
+
+.feat li a:hover strong { background: url(../assets/dim80.png); }
+.feat li a strong {
+    font-weight: bold;
+    display: inline-block;
+    padding: 6px;
+    margin: 3px;
+    line-height: 1.1em;
+    max-width: 300px;
+    background: url(../assets/dim.png);
+}
+
+.feat li .description {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 100px;
+  height: 112px;
+  overflow: hidden;
+  background: url(../assets/dim.png);
+  padding: 10px;
+  color: #fff;
+  font-size: 11px;
+  z-index: 3;
+}
+
+.feat li a span {
+    display: block;
+    font-size: 12px;
+    line-height: 1em;
+    opacity: .8;
+}
+
+.classics.right li:hover { z-index: 1000; }
+.classics.right li { width: 42px; height: 42px; margin-left: -12px; }
+.classics.right {
+    float: right;
+    white-space: nowrap;
+    margin: -54px -5px 10px 0;
+}
+
+.classics {
+    padding: 0;
+    margin: 0 0 20px 0;
+    white-space: nowrap;
+    clear: both;
+}
+
+.classics li.nofloat {
+    float: none;
+    font-size: .8em;
+    margin: 0 0 0 17px;
+    padding: 4px 0 1px;
+    display: block;
+}
+
+.classics li {
+    padding: 0;
+    margin: 0;
+    background: none;
+    float: left;
+    position: relative;
+}
+
+.classics a {
+    width: 48px;
+    height: 31px;
+    padding: 16px 0 0;
+    margin: 0;
+    position: relative;
+    z-index: 1000;
+    float: left;
+    white-space: nowrap;
+    font-size: 1.2em;
+    text-align: center;
+    text-indent: -9000em;
+    overflow: hidden;
+}
+
+.classics a:hover {
+    color: #000;
+}
+
+#content .games {
+    position: relative;
+}
+
+#content .games li {
+    overflow: hidden;
+    white-space: nowrap;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+#content .games.mini img {width: 24px; height: 24px;}
+#content .games img {
+    float: left;
+    padding: 0;
+    margin: 4px 6px 4px 4px;
+    position: relative;
+    z-index: 0;
+}
+
+#content .games.mini li a {
+    background-position: 4px 4px;
+    padding: 2px 0;
+}
+
+#content .games.mini li a {font-size: 1em; padding: 1px 1px 0 1px;}
+#content .games li a {
+    display: block;
+    padding: 16px 0;
+    line-height: 2.4em;
+    font-size: 1.2em;
+    position: relative;
+    z-index: 1;
+}
+
+#content .games strong {font-weight: normal;}
+#content .games.mini span {top: -20px;}
+#content .games span {
+    color: #888;
+    padding: 0 4px 0 0;
+    position: relative;
+    z-index: 100;
+    float: right;
+    top: -3.1em;
+    height: 1.4em;
+    margin: 0 0 -1.4em 0;
+}
+
+#content .games.mini span img {
+    width: 36px;
+    height: 20px;
+    margin: -6px 0 0;
+}
+
+#content ul.games p {
+    margin: 0 4px 0 0;
+    height: 3em;
+    overflow: hidden;
+}
+
+a.information:hover {background: none;}
+a.information img {
+    margin: 0 0 -4px 0;
+}
+
+#content a.icon {
+    float: left;
+    margin: 0 8px 0 0;
+    padding: 1px;
+    max-height: 48px;
+}
+
+.icon:hover, .active .icon {
+    border-color: #444;
+}
+
+p.description {
+    font-size: 14px;
+    line-height: 1.6em;
+    margin-top: -4px;
+    text-shadow: none;
+    color: #fff;
+}
+
+h4.title {
+    font-size: 16pt;
+    font-weight: normal;
+    margin: 0 0 4px 0;
+}
+
+.continue {
+    display: block;
+    padding: 2px 0;
+    margin: 0;
+    text-align: right;
+    font-weight: normal;
+    color: #738ca6;
+    font-size: 12px;
+}
+
+.continue a:last-child {
+    font-weight: bold;
+}
+
+#new_comment { margin-bottom: 5px; }
+.comments div.c p {clear: both;}
+.comments div p {clear: none;}
+.comments h4 a {font-size: 1.1em; font-weight: bold;}
+.comments h4 img {margin: -4px 0;}
+.comments h4 { color: #999; }
+
+.comments p {
+    line-height: 1.6em;
+    margin: 0;
+}
+
+.comments li:hover,
+.pulse li:hover,
+.box:hover { background: url(../assets/dim.png); }
+.comments li {
+    padding: 8px;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    background: none;
+}
+
+.comments li#lastcomment {
+    display: none;
+    background: none;
+}
+
+.comments div.left {
+    float: left;
+    width: 30%;
+}
+
+.comments .icon img,
+#content .comments a.icon { width: 32px; height: 32px; }
+.comments.g .icon img,
+#content .comments.g a.icon { width: 48px; height: 48px; }
+
+.comments p.right {
+    float: left;
+    width: 70%;
+}
+
+.comments .left span {
+    display: block;
+    margin: -3px 0 0;
+    font-size: 8pt;
+}
+
+.comments span.stars {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+}
+
+.comments span.stars strong {
+    display: block;
+    float: left;
+    line-height: 1.5em;
+    margin: 0 8px 0 0;
+}
+
+.comments.g .icon { float: left; margin-right: 8px; }
+.comments.g.float { float: left; clear: none; margin-top: 10px; }
+.comments.g { margin-right: -4px; }
+.comments.g li:hover { background: url(../assets/dim.png); }
+.comments.g h4 a { display: block; }
+.comments.g h4 { font-size: 15px; overflow: hidden; white-space: nowrap; color: #444; margin: -7px 0 3px 0; }
+.onethird .comments.g li, .quarter .comments.g li, .onethird .comments.g p { width: auto; float: none; }
+.onethird .comments.g span span { display: none; }
+.onethird .comments.g span { width: 218px; }
+.half .comments.g li { width: 226px; }
+.comments.g li a { display: block; }
+.comments.g li {
+    width: 297px;
+    overflow: hidden;
+    float: left;
+    padding: 10px;
+    margin: 0 6px 6px 2px;
+    position: relative;
+    background: url(../assets/dim20.png);
+}
+
+.comments.g li p {
+  width: 223px;
+  float: left;
+  height: 2.8em;
+  overflow: hidden;
+  line-height: 1.4em;
+  margin-top: -2px;
+  font-size: 14px;
+}
+
+.comments.g span strong { float: left; }
+.comments.g span {
+    color: #999;
+    position: absolute;
+    bottom: 1px;
+    right: 0;
+    padding: 4px 10px 0 10px;
+    display: block;
+    width: 75%;
+    height: 22px;
+    font-size: 12px;
+    text-align: right;
+}
+
+.comments.g span span {
+    /*position: absolute;
+    bottom: 0;
+    left: -118px;
+    font-size: 11px;
+    width: 100%;*/
+    display: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    clear: both;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.preview {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.preview h4 {
+    display: inline;
+}
+
+td .icon {
+    margin: -1px 0;
+}
+
+td h4 a.img {
+    float: right;
+    margin: -1.3em 2px 0 0;
+}
+
+blockquote {
+    color: #999;
+    padding: 8px 8px 8px 20px;
+    margin: 0 0 20px 12px;
+    border-left: 1px solid #999;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+
+/* Forms
+--------------------------------------------- */
+input, textarea {
+    font-size: 1.2em;
+    padding: 6px;
+    margin: 0 0 2px 0;
+    color: #444;
+}
+
+form *[disabled=disabled] {
+    opacity: .3;
+}
+
+input.file {
+    width: 200px;
+}
+
+legend {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    padding: 4px 15px;
+    background: #333;
+    text-shadow: 0 1px #000;
+    color: #fff;
+}
+
+fieldset img { float: left; margin: 0 8px 8px 0; }
+fieldset {
+    margin: 0 0 10px 0;
+    padding: 10px;
+    border: none;
+    background: url(../assets/dim.png);
+}
+
+label {
+    margin: 6px 0 2px;
+    display: block;
+    clear: both;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+}
+
+label.checkbox input { margin-right: 4px; }
+label.checkbox {
+    background: url(../assets/dim.png);
+    padding: 4px 8px;
+    display: inline-block;
+    color: #999;
+    margin: 0 4px 10px 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+form span.fail, form span.success {
+    background: none;
+    padding: 0;
+}
+
+.success, .fail, .errorExplanation {
+    background: #5C974C;
+    padding: 4px;
+    text-shadow: 0 1px #000;
+    text-align: left;
+    color: #fff;
+    display: block;
+    margin: 0 0 10px 0;
+}
+
+.fail, .errorExplanation {
+    background: #B23A2E;
+}
+
+.fail h4, .errorExplanation h2 {
+    font-size: 12pt;
+    background: darkred;
+    color: #fff;
+    padding: 4px 8px;
+    margin: 0 0 6px 0;
+    font-weight: bold;
+}
+
+.fail p, .errorExplanation p {
+    display: none;
+}
+
+.fail ul, .errorExplanation ul {
+    margin: 0 0 6px 0;
+}
+
+.fail ul li, .errorExplanation ul li {
+    list-style: disc;
+    margin-left: 20px;
+    font-size: 14px;
+    line-height: 1.5em;
+}
+
+.field_with_errors {
+    display: inline;
+}
+
+.field_with_errors input,
+.field_with_errors textarea {
+    border: 3px solid #B23A2E;
+}
+
+.bold legend {font-weight: bold;}
+.first_half.noheight, .second_half.noheight {height: auto;}
+.second_half {margin-left: 20px;}
+.first_half, .second_half {
+    width: 45%;
+    float: left;
+}
+
+form p.img_verify {line-height: 0.4em;}
+form p.pad {padding: 0 0 0 12px;}
+form p {
+    padding: 3px 0 0;
+    margin: 0 0 4px 0;
+    line-height: 1em;
+}
+
+form br {
+    clear: both;
+    display: block;
+    margin: 0 0 8px 0;
+}
+
+form hr {
+  margin: 18px 0;
+  border: none;
+  border-top: 1px dotted #939aaf;
+  clear: both;
+}
+
+.titlefield, .longfield, textarea {width: 100%; margin: 0 0 5px 0;}
+.titlefield {font-size: 18px;}
+.titlefield.text { width: 300px; float: left; }
+.text { width: 200px; }
+#game_category_id { width: 220px; }
+
+textarea.inline { width: 475px; }
+label.inline, .full label.inline {
+    line-height: 1.4em;
+    float: left;
+    text-align: right;
+    width: 130px;
+    padding: 6px 4px 10px 0;
+    margin: -4px 6px 10px 0;
+    position: relative;
+}
+
+label.inline.radio {
+    line-height: 2em;
+    margin: -4px 6px -10px 0;
+}
+
+label.inline span {margin: 0; position: absolute; bottom: 4px; right: 6px;}
+label.red span {color: #fff;}
+label span, fieldset span {
+    font-size: 11px;
+    line-height: .2em;
+    font-style: italic;
+    font-weight: normal;
+}
+
+p.inline { margin: -8px 0 0 140px; }
+p.inline .age {margin: -4px 0 0;}
+input.age {width: 3em; padding: 4px;}
+
+select.age {width: 90px;}
+select.mid {width: 100px;}
+select {
+    width: 160px;
+    height: 29px !important;
+    padding: 0 10px;
+    color: #444;
+}
+
+option {padding: 1px 0 1px 4px;}
+
+.quicksubmit {width: 60px; padding: 2px 0;}
+.quickinput {width: 110px; padding: 2px;}
+
+tr .submitbutton { padding: 4px 12px; }
+.submitbutton:hover, #searchbutton:hover { cursor: pointer; }
+input.submitbutton { padding: 6px 25px; font-size: 16px; }
+.submitbutton.right {float: right;}
+.submitbutton { margin: 0 0 2px 0; border-left: none; border-right: none; }
+#content .submitbutton.inline { margin-left: 140px; }
+#content .submitbutton { padding: 10px 20px; font-size: 17px; }
+
+#problem {
+    float: left;
+    width: 200px;
+    margin: 0;
+}
+
+#preview {
+    color: #999;
+    width: 210px;
+    padding: 4px;
+    margin: 0 0 10px 0;
+}
+
+
+/* Game#show
+--------------------------------------------- */
+.related_games { margin: 10px 5px 0; }
+.related_games .comments.g span { width: 169px; }
+.related_games .comments.g span span,
+.related_games .comments.g span strong { display: none; }
+.related_games .comments.g p { width: 70%; }
+.related_games .comments.g li { width: 226px; }
+
+.adult_notice {
+    font-size: 16pt;
+    text-align: center;
+    margin: 50px 0 0;
+}
+
+.twothirds.nopad {
+    padding: 6px 0 3px;
+    width: 728px;
+}
+
+#game_object {
+    text-align: center;
+    margin: 0;
+    position: relative;
+    z-index: 1000;
+}
+
+#game_object .onethird { width: 334px; }
+#game_object .twothirds { width: 650px; }
+#game_object .description { text-align: left; margin-bottom: -5px; }
+#game_object .twothirds h3 { margin: 0 0 -6px 0; }
+#game_object .game_panel h3 { margin: 2px 0 4px 0; }
+#game_object .game_panel {
+    min-height: 400px;
+    overflow: hidden;
+    text-align: left;
+}
+
+#game_object .game_panel a.modal {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#game { margin-bottom: 4px; }
+#game span { display: none; }
+
+#long_description {
+    display: none;
+}
+
+h4.all {background: url(../assets/rated_everyone.gif) repeat-x top;}
+h4.mature {background: url(../assets/rated_mature.gif) repeat-x top;}
+h4.adult {background: url(../assets/rated_adult.gif) repeat-x top;}
+h4.rated {
+    color: #fff;
+    font-weight: bold;
+    padding: 3px 0 1px 0;
+    text-align: center;
+    margin: 0;
+    font-size: 14pt;
+}
+
+ul.rating { margin-bottom: 10px; font-size: 14px; }
+ul.rating li { padding: 8px; text-align: center; text-shadow: none !important; color: #000; }
+
+#share {
+    margin: 0 0 20px;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 12px;
+}
+
+#share ul {
+    width: 100%;
+    margin: 0;
+    color: #666;
+}
+
+#share h4, #share strong {
+    text-shadow: 0 1px 0 #333;
+    font-weight: bold;
+    margin: 0 -10px 0 10px;
+}
+
+#share strong {
+    padding: 0;
+    margin-left: 0;
+    display: inline-block;
+    margin-right: 5px;
+    font-weight: normal;
+}
+
+#share li.right { float: right; }
+#share li {
+    float: left;
+    padding: 6px 0;
+    margin: 1px 20px -1px 0;
+    text-shadow: 0 1px #fff;
+}
+
+#share a img {margin: 0 2px -2px 0;}
+#share a { font-weight: bold; padding: 4px 0; }
+
+#share .rate ul {
+    background: url(../assets/star-rating.png) repeat-x top left;
+    margin: 2px 0 0;
+    position: relative;
+    width: 90px;
+    height: 18px;
+}
+
+#share .rate ul:hover li a { background: url(../assets/star-rating.png) repeat-x top left !important; }
+#share .rate ul li {
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+#share .rate ul li a.half { background: url(../assets/star-rating.png) repeat-x 0 -54px; }
+#share .rate ul li a.full { background: url(../assets/star-rating.png) repeat-x 0 -18px; }
+#share .rate ul li a {
+    width: 18px;
+    height: 18px;
+    text-indent: -9000px;
+    margin: 0;
+    z-index: 20;
+    position: absolute;
+    display: block;
+    padding: 0;
+}
+
+#share .rate ul li a:hover {
+    background: url(../assets/star-rating.png) repeat-x 0 -36px !important;
+    z-index: 1;
+    left: 0;
+}
+
+#share .rate ul a.star_1 {left: 0;}
+#share .rate ul a.star_1:hover {width: 18px;}
+#share .rate ul a.star_2 {left: 18px;}
+#share .rate ul a.star_2:hover {width: 36px;}
+#share .rate ul a.star_3 {left: 36px;}
+#share .rate ul a.star_3:hover {width: 54px;}
+#share .rate ul a.star_4 {left: 54px;}
+#share .rate ul a.star_4:hover {width: 72px;}
+#share .rate ul a.star_5 {left: 72px;}
+#share .rate ul a.star_5:hover {width: 90px;}
+
+
+/* Lists
+--------------------------------------------- */
+.games.mini li h3 {padding: 0;}
+
+.avatar_float {
+    position: absolute;
+    top: -3px;
+    left: 260px;
+}
+
+.avatar {
+    float: left;
+    margin: 0 15px 0 0;
+    padding: 1;
+    -webkit-box-shadow: 0 1px 2px #000;
+    -moz-box-shadow: 0 1px 2px #000;
+    box-shadow: 0 1px 2px #000;
+}
+
+.onethird .page { width: 100%; }
+.page {
+    width: 47%;
+    height: 88px;
+    margin: 0 3% 12px 0;
+    overflow: hidden;
+    float: left;
+    white-space: nowrap;
+}
+
+.page .avatar {
+    width: 86px; height: 86px;
+    margin-right: 8px;
+}
+
+.page h4 {
+    display: inline-block;
+    white-space: normal;
+    overflow: hidden;
+    margin: 2px 0;
+}
+
+.page p {
+    white-space: normal;
+}
+
+ul.avatar {
+    float: left;
+    width: 842px;
+}
+
+ul.pulse,
+.bubble p {
+    margin: 0;
+}
+
+.pulse br {line-height: .4em;}
+.pulse h4 img {margin: 0 0 -3px 0;}
+.pulse h4 {
+    margin: 0 0 2px 0;
+    padding: 0;
+    font-weight: normal;
+    color: #4d6372;
+    line-height: 1.2em;
+}
+
+.pulse .icon {
+    background: none;
+    height: 16px;
+    width: 16px;
+    margin: 0 1px -4px 3px;
+}
+
+.pulse .pict {
+    color: #fff;
+    text-shadow: 0 1px #000;
+    margin: 1px 5px -1px 3px;
+}
+
+.alphabet li a, .pagination a, .bubble {
+    padding: 4px 6px;
+    line-height: 2em;
+    clear: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-image: none;
+}
+
+.pulse li {
+    padding: 6px 4px;
+    border-bottom: 1px dotted #444;
+    background: none;
+}
+
+.pulse p {
+    padding: 0 20px 6px 0;
+    font-size: 8pt;
+    line-height: 1.5em;
+    margin: 0;
+    overflow: hidden;
+}
+
+.sidebox .pulse li {
+    padding: 4px 0;
+}
+
+.alphabet, .pagination {
+    clear: both;
+    margin-bottom: 20px;
+}
+
+.alphabet li {
+    float: left;
+    margin: 0 2px 0 0;
+    background: none;
+    line-height: 2.3em;
+    padding: 0;
+}
+
+.alphabet li.nota {
+    padding: 0 4px;
+}
+
+.alphabet li a, .pagination a {
+    font-weight: bold;
+    background: url(../assets/head_fade.png) repeat-x 0 -50px;
+}
+
+.alphabet li a:hover, .pagination a:hover {
+    background: #fff;
+    text-shadow: none;
+    color: #444;
+}
+
+.pagination span,
+.pagination em {padding: 5px 4px;}
+
+tr.nopad td {padding: 0;}
+
+dl {
+    clear: both;
+    margin: 0 0 20px 0;
+    padding: 10px 0;
+    background: url(../assets/dim20.png);
+}
+
+dd img {margin: -2px 0 -2px 0;}
+dt, dd {
+    float: left;
+    width: 90px;
+    text-align: right;
+    font-weight: bold;
+    margin: 0;
+    padding: 4px 10px 4px 0;
+}
+
+dd {
+    width: 170px;
+    text-align: left;
+    font-weight: normal;
+    padding-left: 10px;
+}
+
+/* Miscellaneous
+--------------------------------------------- */
+span.red {padding: 2px; margin: 0 4px;}
+span.center {display: block; margin: 4px 0 0;}
+.margintop {margin-top: 22px;}
+
+.percent {
+    margin: 4px 0 30px 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.percent span {
+    height: 20px;
+    background: #333 url(../assets/head_fade.png) repeat-x bottom left;
+    display: block;
+}
+
+#content a.img, #content a.img:hover, form h3 a:hover {
+    background: none;
+    padding: 0;
+}
+
+.forum td.left {
+    text-align: left;
+}
+
+.forum {
+    text-align: center;
+}
+
+.contain table.forum {
+    margin: 0 0 20px 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+table.small a.icon img {
+  width: 24px;
+  height: 24px;
+}
+
+table tr.noborder td, table td.noborder {
+    border: none;
+}
+
+table.hover tr:hover {
+    background: url(../assets/head_fade.png) repeat-x 0 -20px;
+}
+
+table.linkit td.left.top p {margin: 0;}
+td.top {vertical-align: top;}
+table td.center {text-align: center;}
+table td.center {font-size: 1.2em;}
+table tr.head td.center {font-size: 1em;}
+
+table.five {width: 5%;}
+table .ten {width: 10%;}
+table .fifteen {width: 15%;}
+table .twenty {width: 20%;}
+table .twentyfive {width: 25%;}
+table .thirty {width: 30%;}
+table .fourty {width: 40%;}
+table .fifty {width: 50%;}
+table .sixty {width: 60%;}
+table .seventy {width: 70%;}
+table .eighty {width: 80%;}
+
+table td {padding: 6px 8px; overflow: hidden;}
+table td span, .mini li span {
+    color: #999;
+    font-size: 9pt;
+    line-height: 1.2em;
+    display: block;
+}
+
+table td.top .icon {
+    margin: 2px 6px 0 0;
+}
+
+table tr.head {
+    padding: 0 3px;
+    background: url(../assets/dim20.png);
+}
+
+table tr.head h4 img {margin: -2px 0;}
+table tr.head h4 {
+    font-weight: bold;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+table tr.head h4 a {
+    display: block;
+}
+
+table tr.head h4 a:hover {
+    background: none;
+}
+
+table td.title.strong a {font-weight: bold;}
+table td.title {
+    height: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+table .actions {
+    background: url(../assets/dim20.png);
+}
+
+table .actions ul.userinfo li {
+    float: left;
+    font-size: 12px;
+    margin: 0 0 10px 0;
+}
+
+table .actions ul {
+    float: left;
+    width: 50%;
+    margin: 0 0 -10px 0;
+}
+
+table .actions ul li {
+    float: right;
+    margin: 0 5px 0 0;
+}
+
+#addreply textarea {width: 520px;}
+#addreply {
+    background: #eee;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+h3.breadcrumbs {
+    margin: 0 10px 4px 10px;
+font-size: 16px !important; font-weight: normal;}
+
+.breadcrumbs a {
+    display: inline;
+    background: none;
+    font-weight: bold;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+color: #000; text-shadow: none; padding: 0;}
+
+.button {
+    padding: 6px 10px;
+    position: absolute;
+    top: 6px;
+    right: 40px;
+    font-size: 12pt;
+    background: url(../assets/dim.png);
+}
+
+h4.obox {
+    background: url(../assets/dim.png);
+    margin: 0 0 5px 0;
+    padding: 4px 8px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+h2 .icon {
+    margin: 0 0 -5px 0;
+    width: 25px;
+    height: 25px;
+}
+
+.addthis_toolbox {
+    text-align: center;
+    margin: 0 0 4px 0;
+    padding: 0;
+}
+
+.ad_square_big { margin: 0 0 20px 0; }
+
+.feat li ins {
+  position: absolute !important;
+  top: 21px;
+  left: 0;
+}
+
+.leaderboard {
+    clear: both;
+    margin: 6px auto 0 auto;
+    padding: 4px 0;
+    width: 956px;
+    height: 90px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.sponsor { display: block; }
+.modal_window, .alt { display: none; }
+
+
+/* Tags */
+#content .tags.big { font-size: 1.2em; line-height: 1em; }
+#content .tags li {
+    background: none;
+    display: inline;
+    line-height: 2.5em;
+    padding: 0;
+    margin: 10px 4px;
+}
+
+#content .tags li a {
+  padding: 4px 5px;
+}
+
+.tag1 { font-size: 1.0em; }
+.tag2 { font-size: 1.2em; }
+.tag3 { font-size: 1.4em; }
+.tag4 { font-size: 1.6em; }
+
+
+/*     jQuery UI    */
+.ui-widget-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url(../assets/dim80.png); }
+.ui-dialog {
+    position: fixed !important;
+    top: 100px !important;
+}
+
+.ui-dialog h2 {
+    margin: -20px -20px 10px -20px;
+    padding: 10px 20px;
+    color: #000;
+    font-weight: bold;
+    text-shadow: none !important;
+    font-size: 14pt;
+    text-transform: uppercase;
+}
+
+.ui-dialog p { margin: 10px; }
+.ui-dialog label, .ui-dialog p {
+  color: #444;
+  font-size: 14px;
+}
+
+.slidedown #remember_me { margin-left: 0; }
+#remember_me {
+    margin: 8px 0 0 30px;
+    float: left;
+}
+
+.ui-dialog .ui-dialog-titlebar-close {
+    position: absolute;
+    right: -6px; top: 6px;
+    z-index: 1000;
+    width: 28px;
+    height: 28px;
+    background: url(../assets/close.png) no-repeat top left;
+    text-indent: -3000em;
+    overflow: hidden;
+}
+
+.ui-dialog .ui-dialog-content {
+    border: 0;
+    padding: .5em 1em;
+    background: url(../assets/bg_blue.jpg);
+    padding: 20px 20px 15px;
+    border: 2px solid #fff;
+    -webkit-box-shadow: 0 0 20px #000;
+    -moz-box-shadow: 0 0 20px #000;
+    overflow: hidden;
+    color: #444;
+    text-align: center;
+}
+
+.ui-dialog .ui-dialog-content form {
+    width: 420px;
+    margin-bottom: 0;
+}
+
+/* Tooltips */
+
+.tipsy { padding: 5px; font-weight: bold; position: absolute; z-index: 100000; }
+  .tipsy-inner { padding: 5px 8px 4px 8px;  color: white; max-width: 200px; text-align: center; }
+  .tipsy-inner { background-color: rgb(25,25,25); background-color: #000; background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), to(#000)); }
+  .tipsy-arrow { position: absolute; background: url('../assets/tipsy.gif') no-repeat top left; width: 9px; height: 5px; }
+  .tipsy-n .tipsy-arrow { top: 0; left: 50%; margin-left: -4px; }
+    .tipsy-nw .tipsy-arrow { top: 0; left: 10px; }
+    .tipsy-ne .tipsy-arrow { top: 0; right: 10px; }
+  .tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -4px; background-position: bottom left; }
+    .tipsy-sw .tipsy-arrow { bottom: 0; left: 10px; background-position: bottom left; }
+    .tipsy-se .tipsy-arrow { bottom: 0; right: 10px; background-position: bottom left; }
+  .tipsy-e .tipsy-arrow { top: 50%; margin-top: -4px; right: 0; width: 5px; height: 9px; background-position: top right; }
+  .tipsy-w .tipsy-arrow { top: 50%; margin-top: -4px; left: 0; width: 5px; height: 9px; }
+
+
+/* Forms
+------------------------------------------------------------*/
+::-moz-focus-inner {
+  border: 0;
+}
+
+input,
+button,
+select,
+textarea {
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  vertical-align: middle;
+}
+
+button,
+input[type="submit"],
+input[type="button"] {
+  -webkit-appearance: none;
+  background: #ddd url(../assets/button.png) repeat-x;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ddd));
+  background: -moz-linear-gradient(top center, #fff 0%, #ddd 100%);
+  border: 1px solid;
+  border-color: #bbb #aaa #888;
+  cursor: pointer;
+  color: #333;
+  font: bold 12px/1.2 Arial, sans-serif;
+  outline: 0;
+  overflow: visible;
+  width: auto;
+
+  /* IE7 */
+  *padding-top: 2px;
+  *padding-bottom: 0px;
+}
+
+button {
+  /* IE7 */
+  *padding-top: 1px;
+  *padding-bottom: 1px;
+}
+
+button[disabled],
+input[type="reset"][disabled],
+input[type="submit"][disabled],
+input[type="button"][disabled] {
+  color: #888;
+}
+
+textarea,
+select,
+input[type="password"],
+input[type="search"],
+input[type="text"] {
+  -webkit-appearance: none;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid;
+  border-color: #bbb #aaa #888;
+  color: #000;
+  outline: 0;
+  margin-bottom: 10px;
+
+  /* IE7 */
+  *padding-top: 2px;
+  *padding-bottom: 1px;
+  *height: auto;
+}
+
+select {
+  background: #fff url(../assets/select_arrow.gif) no-repeat right !important;
+}
+
+/* Pictos Font
+* Copyright © 2010 Drew Wilson
+* http://www.drewwilson.com  -  http://pictos.drewwilson.com
+*
+* The fonts included in this stylesheet are subject to the End User License you purchased
+* from Drew Wilson. The fonts are protected under domestic and international trademark and
+* copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+* distributing this font software.
+*
+* This font is NOT free. It is illegal to use this font without paying for a license.
+*/
+@font-face {
+    font-family: 'Pictos';
+    src: url('../fonts/pictos-web.eot');
+    src: local('☺'), url('../fonts/pictos-web.woff') format('woff'), url('../fonts/pictos-web.ttf') format('truetype'), url('../fonts/pictos-web.svg#webfontIyfZbseF') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+.bubble { background: #e9e9e9 url(../assets/head_fade.png) repeat-x 0 -30px; }
+
+h2 a,h3 a,.comments.g li,.nav,table tr.head, h4.obox, legend, fieldset , label.checkbox, table tr.odd,.comments .odd, .tags li a, .feat li, .box, #share {
+    box-shadow: 0 1px 2px #444;
+    -moz-box-shadow: 0 1px 2px #444;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    background: transparent url(../assets/head_fade.png) repeat-x 0 -30px;
+}
+
+h3 span a,h2 span a { color: #386991; }
+
+#head { background: #ccc url(../assets/head_fade.png) repeat-x top left; }
+#head { -moz-box-shadow: 0 0 6px #444; -webkit-box-shadow: 0 0 6px #444; box-shadow: 0 0 6px #444; }
+#head #nav { background: url(../assets/nav_sep.png) no-repeat right 7px; }
+#head #nav li { background: url(../assets/nav_sep.png) no-repeat 0 7px; }
+#head #nav li.active a { color: #7299fc; }
+#head #nav li a:hover,#head h1:hover { background: url(../assets/black_fade_up.png) repeat-x top; color: #000; }
+#head #nav li a { text-shadow: 0 1px #fff; }
+
+#flash h4 { background: url(../assets/dim.png); color: #FF0; }
+
+.nav li.active a { color: #000; text-shadow: 0 1px #fff; background: url(../assets/black_fade_up.png) repeat-x 0 -20px; }
+.nav li a:hover { background: url(../assets/black_fade_up.png) repeat-x 0 -30px; color: #fff; }
+.nav a { text-shadow: none; }
+
+pre { border-left: 4px solid #666; color: #fff; }
+blockquote { border-left: 1px solid #999; color: #999; }
+legend { color: #000; text-shadow: none; }
+
+.lists li.active a { color: #000; }
+.lists a span { color: #888; text-shadow: none; }
+
+.classics span { text-shadow: none; }
+.icon:hover,.active .icon { border-color: #444; }
+.continue { color: #738ca6; }
+
+.comments.g li { background: url(../assets/head_fade.png) repeat-x 0 -45px; }
+.comments.g span strong { float: left; }
+.comments.g span { color: #fff; }
+.comments.g a { text-shadow: none; }
+
+ul.rating li { border-color: #fff; color: #555; }
+
+.success,div.fail,.fail ul,.errorExplanation { background: #5C974C; color: #fff; text-shadow: 0 1px #000; }
+div.fail,.fail ul,.errorExplanation { background: #B23A2E; }
+.field_with_errors input,.field_with_errors textarea { border: 3px solid #B23A2E; }
+
+.titlefield,.longfield,textarea { border: 1px solid #999; }
+
+#share h4,#share strong { text-shadow: 0 1px 0 #fff; }
+#share .rate ul { background: url(../assets/star-rating.png) repeat-x top left; }
+#share .rate ul li a:hover { background: url(../assets/star-rating.png) repeat-x bottom left; }
+
+.third li { background: url(../assets/bullet.gif) no-repeat 0 6px; }
+.alphabet li a:hover,.pagination a:hover { background: #fff; color: #444; text-shadow: none; }
+
+table.hover tr:hover { background: url(../assets/head_fade.png) repeat-x 0 -20px; }
+#addreply { background: #eee; border: 1px solid #ddd; }
+
+.bubble,.sponsor,#share li { text-shadow: 0 1px #e9f2f9; }
+.pulse li { border-color: #ccc; }
+
+#content .pulse li .pict,h4 { color: #688796; text-shadow: none; }
+h2 a:hover,.comments li:hover,.pulse li:hover,#main .comments.g li:hover,label.checkbox,dl,table .actions, .comments.g li:hover { background: url(../assets/dim_light.png); }
+label.checkbox { color: #444; }
+.button { background: url(../assets/dim80_light.png); }
+label.red span { color: #fff; }
+p.description,select,.subnav .active a { color: #444; }
+.comments h4,#preview,table td span,.mini li span { color: #999; }
+#main .comments.g li:hover a,.ui-dialog h2 { color: #000; }
+
+h4.rated { color: #fff; text-shadow: 0 1px #555; }

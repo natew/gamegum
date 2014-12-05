@@ -1,0 +1,9 @@
+# Use the README file as a reference to customize settings.
+
+Comment:
+  fields:
+    default: message, game, user, created_at
+    form: message, game_id, user_id
+  relationships: 
+  order: created_at
+  application: Application

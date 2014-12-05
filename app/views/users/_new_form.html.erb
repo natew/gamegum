@@ -1,0 +1,19 @@
+    <%= form_for :user, :url => users_path do |f| %>
+      <%= render 'shared/error_messages', :target => @user unless @user.nil? %>
+
+      <%= label :user, :login, "Username", :class => 'inline' %>
+      <%= f.text_field :login, :class => 'text', :autofocus => true %><br />
+
+      <%= label :user, :password, "Password", :class => 'inline' %>
+      <%= f.password_field :password, :class => 'text' %><br />
+
+      <%= label :user, :password_confirmation, "Confirm", :class => 'inline' %>
+      <%= f.password_field :password_confirmation, :class => 'text' %><br />
+
+      <%= label :user, :email, "Email <span><b>Must</b> verify!</span>".html_safe, :class => 'inline' %>
+      <%= f.text_field :email, :class => 'text' %><br />
+
+      <%= submit_tag 'Sign up!', :class => 'submitbutton inline' %><br />
+
+      <p class="inline">Check out our <%= link_to 'guidelines and privacy policy'.html_safe, rules_path, :rel => 'external' %></p>
+    <% end -%>

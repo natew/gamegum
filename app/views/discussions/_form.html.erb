@@ -1,0 +1,16 @@
+	<%= form_for [@topic,@discussion] do |f| %>
+	  <%= render 'shared/error_messages', :target => @discussion %>
+	  <% if @cant_submit %>
+	    <h4>Please confirm your email address before posting</h4>
+	  <% end %>
+	  
+	  <%= hidden_field :discussion, :topic_id, :value => @topic.id %>
+	  
+	  <%= label :discussion, :title, "Title <span>Required</span>".html_safe %>
+	  <%= f.text_field :title, :class => 'titlefield', :disabled => @cant_submit %>
+	  
+	  <%= label :discussion, :message, "Message <span>Required</span>".html_safe %>
+	  <%= f.text_area :message, :rows => 10, :disabled => @cant_submit %>
+	  
+	  <%= submit_tag button_text, :class => 'submitbutton', :disabled => @cant_submit %>
+	<% end %>

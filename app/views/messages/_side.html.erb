@@ -1,0 +1,19 @@
+    <div class="onethird">
+    <%- if session[:mail_box] == 'inbox' -%>
+      <h3>Stats</h3>
+      Inbox is <strong><%= @percent %>%</strong> full. Maximum of 200 messages.
+      <%- if @percent == 200 -%>
+      <h4 class="fail">You have reached your private message limit.</h4>
+      <%- end -%>
+      <div class="percent"><span style="width: <%= @percent %>%;"></span></div>
+    <%- end -%>
+      	
+      <%- if @users_messaged.size > 0 %>
+      <h3>Recent Contacts</h3>
+	  <ul class="games mini">
+      <%- for user in @users_messaged -%>
+        <li class="<%= cycle('even', 'odd') %>"><%= link_to "#{image_tag(user.avatar.url)} #{user.login}".html_safe, user %> <span><%= link_to image_tag('pm.png'), { :controller => 'messages', :action => 'new', :id => user.id } %></span></li>
+      <%- end -%>
+      </ul>
+      <%- end -%>
+    </div>

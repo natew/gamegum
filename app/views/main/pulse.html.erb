@@ -1,0 +1,13 @@
+  <% content_for(:title, "Pulse - see whats happening live around GameGum") %>
+  <%= render 'users/community_nav' %>
+
+  <div class="twothirds">
+    <ul class="pulse">
+      <%= render :partial => 'shared/pulse', :collection => @pulse %>
+    </ul>
+  </div>
+  
+  <div class="onethird">
+    <h3>Pulse</h3>
+    <p>The Pulse is a look into whats going on now on the site.  Check here to see the latest games, comments, ratings, and more.</p>
+  </div>

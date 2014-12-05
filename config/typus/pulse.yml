@@ -1,0 +1,9 @@
+# Use the README file as a reference to customize settings.
+
+Pulse:
+  fields:
+    default: user, category, game, stars, created_at
+    form: category, description, stars, user_id, game_id, adult
+  relationships: 
+  order: created_at
+  application: Application

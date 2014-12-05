@@ -1,0 +1,7 @@
+    <% content_for(:title, 'New Thread') %>
+    <%= render :partial => 'topics/nav' %>
+    
+    <div class="twothirds">
+      <h2>New Thread in <%= @topic.title %></h2>
+      <%= render :partial => 'form', :locals => { :button_text => 'Post Thread' } %>
+    </div>

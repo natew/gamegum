@@ -1,0 +1,9 @@
+<% content_for(:title, 'Play Online Games') %>
+<%= render :partial => 'nav' %>
+
+      <div class="twothirds">
+        <h2>Games by Topic</h2>
+        <%= render :partial => 'pages/item', :collection => @pages %>
+      </div>
+    
+<%= render :partial => 'side' %>

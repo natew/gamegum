@@ -1,0 +1,10 @@
+  <% unless game.nil? %>
+  <li>
+    <h4 id="game<%= game.object_id %>"><%= link_to game.title, game %></h4>
+    <span><strong><%= number_with_delimiter game.views %> views</strong> <span><%= game.rating_avg %> stars &raquo;</span> <%= stars_for game %></span>
+    <div>
+     <%= link_to image_tag(game.icon.url), game, :class => 'icon' %>
+     <p><%= truncate game.description, :length => 80 %></p>
+    </div>
+  </li>
+  <% end %>

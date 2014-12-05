@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Rating:
+  fields:
+    default: rater, rated, rating
+    form: rater_id, rated_id, rating
+  relationships: 
+  application: Application

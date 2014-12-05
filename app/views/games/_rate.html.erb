@@ -1,0 +1,15 @@
+        <%- if logged_in? and @game.rated_by? current_user -%>
+        <li><%= render :partial => 'rate_submitted' %></li>
+        <%- else -%>
+        <li><h4>Rate</h4></li>
+        <li class="rate">
+          <ul>
+          <%- 1.upto(5) do |i| -%>
+            <% @class = i <= @game.rating_avg ? ' full' : '' %>
+            <% @class = ' half' if (@game.rating_avg - i < 1 and @game.rating_avg - i > 0.2) %>
+            <li><%= link_to i, { :action => 'rate', :game => @game.id, :rating => i }, :class => "star_#{i} rjs#{@class}" %></li>
+          <%- end -%>
+          </ul>
+        </li>
+        <%- end %>
+        <li><strong>Rated <%= @game.rating_avg %> by <%= pluralize @game.rated_count, 'person' %></strong></li>

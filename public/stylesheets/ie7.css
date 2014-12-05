@@ -1,0 +1,34 @@
+div, ul, ol, form, #comments li, #content #input, dl, .pulse li {height: 10%; position: relative;}
+
+#head #nav, #head h4, #footer {
+	width: 100%;
+	position: relative;
+}
+
+#main fieldset {background-position: 0 20px;}
+
+#main #main_inner #content.full table.center.linkit tr.active td a {
+  color: #333;
+}
+
+#main .alphabet li {
+  position: relative;
+  padding: 0;
+}
+
+#main .alphabet li a {
+  padding: 4px;
+  margin: 0;
+}
+
+#main .games.mini li {margin: 0 0 -3px 0;}
+#main h4.announce.full {background: url(../images/i.gif) no-repeat 4px 16px;}
+#head a span, #main .featured .full span.info:hover {cursor: pointer;}
+#head a.active span {display: none;}
+#head .submitbutton {margin-top: 12px;}
+
+#head .profile form {padding: 14px 0 0; height: 10px;}
+
+#main .mininav li {
+	margin-bottom: -2px;
+}

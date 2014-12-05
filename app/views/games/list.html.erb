@@ -1,0 +1,28 @@
+<% content_for(:title, @title) %>
+
+<%= render :partial => 'nav' %>
+  <div class="head_info">
+    <div class="onethird game">
+        <h2><%= @title %></h2>
+          <%- unless @title == 'Now Playing' -%>
+          <ul class="subnav">
+            <li<% if params[:within].blank? %> class="active"<% end %>><%= link_to '<span>All Time</span>'.html_safe, :controller => 'games', :action => controller.action_name %></li>
+            <%= li '<span>Week</span>'.html_safe, :controller => 'games', :action => controller.action_name, :within => "7" %>
+            <%= li '<span>Month</span>'.html_safe, :controller => 'games', :action => controller.action_name, :within => "31" %>
+            <%= li '<span>Year</span>'.html_safe, :controller => 'games', :action => controller.action_name, :within => "365" %>
+          </ul>
+          <%- end -%>
+    </div>
+    <div class="twothirds nopad">
+      <%= render :partial => 'shared/ad_leaderboard' %>
+    </div>
+  </div>
+
+  <div class="twothirds">
+    <ul class="comments g">
+      <%= render :partial => 'game', :collection => @games %>
+    </ul>
+    <%= will_paginate @games unless @title == 'Most Favorited' || @title == 'Most Discussed' %>
+  </div>
+    
+<%= render :partial => 'side' %>

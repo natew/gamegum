@@ -1,0 +1,4 @@
+<%= form_for([@game, @comment]) do |f| %>
+      <%= f.text_area :message, :rows => 2, :cols => nil %>
+      <%= f.submit button_name, :class => 'submitbutton right' %>
+<% end %>

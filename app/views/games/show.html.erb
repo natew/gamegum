@@ -1,0 +1,104 @@
+      <% content_for(:title, @game.title) %>
+      <div class="head_info">
+        <div class="onethird game">
+              <%= image_tag @game.icon.url, :class => 'avatar' %>
+            <h2><%= @game.title %></h2>
+              <p class="description"><%= relative_time @game.user.created_at %> by <%= link_to @game.user.login, @game.user %></p>
+        </div>
+        <div class="twothirds nopad">
+          <%= render :partial => 'shared/ad_leaderboard', :locals => { :adult => @game.adult } %>
+        </div>
+      </div>
+    
+      <div id="game_object">
+        <div class="twothirds">
+          <% if params[:liverail] == 'true' %>
+          <script language="javascript" src="http://ad4.liverail.com/interstitial/?LR_PUBLISHER_ID=7147&LR_VIDEO_ID=<%= @game.id %>&LR_TITLE=<%= @game.title %>&width=<% @width %>&height=<%= @height %>&volume=0.5"></script>
+          <% end %>
+        
+          <%= render :partial => 'addthis_buttons' %>
+          <div id="game">
+            <% unless @game.flash.nil? or @game_restricted %><span><%= @game.flash.url %>\<%= @width %>\<%= @height %>\high</span><% end %>
+            <% if @game_restricted %><h4 class="adult_notice"><%= render 'shared/signup_or_login' %> to view adult games <p>You must be at least 18 years of age (<%= link_to 'set your birthday in your account', :controller => 'account', :action => 'profile' %>)</p></h4><% end %>
+          </div>
+        </div>
+        <div class="onethird">
+          <div class="game_panel">
+
+            <%= render :partial => 'shared/ad_sqaure_game_side', :locals => { :adult => @game.adult } %>
+
+            <br />
+
+            <%= render :partial => 'shared/ad_square_game_bottom', :locals => { :adult => @game.adult } %>
+
+            <%- if @game.width >= 650 -%>
+              <h3><%= link_to 'Popup full size game &raquo;'.html_safe, '', { :class => 'modal', :rel => 'game' } %></h3>
+              <div id="game_modal" class="modal_window">
+                <h2><%= @game.title %></h2>
+                <span><%= @game.flash.url %>\<%= @game.width %>\<%= @game.height %>\high</span>
+              </div>
+            <%- end -%>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="rated <%= @rated %> tip" title="<%= 'Nudity ' if @game.nudity %><%= ' Violence' if @game.violence %><%= ' Language' if @game.language %>"><%= @rated.titlecase %> Audiences</h4>
+      
+      <div id="share">
+        <ul class="inner">
+          <%= render :partial => 'rate' %>
+          <li id="favorite" class="toggle_ajax">
+            <%- if logged_in? and current_user.has_favorite? @game.id -%>
+              <%= render :partial => 'favorites/remove', :locals => { :game_id => @game.id } -%>
+            <%- else -%>
+              <%= render :partial => 'favorites/add', :locals => { :game_id => @game.id } -%>
+            <%- end -%>
+          </li>
+          <li><a title="Comment" href="#comment_area"><%= image_tag 'comment.png' %> Comment</a></li>
+      
+          <li class="right"><%= link_to "More #{@game.category.title} Games", category_path(@game.category)  %></li>
+          <li class="right"><%= number_with_delimiter @game.views %> views</li>
+        </ul>
+      </div>
+      
+      <% if @game.adult %>
+        <iframe  width="100%" height="215" src="http://banners.adultfriendfinder.com/piclist?link_color=%232E302D&pic_border_color=%23000000&pic_border_width=0&pid=g1335574-pct&rollover_header_color=%23D6D9DA&rows=1&show_join_link=0&show_title=0&size=4&text_color=%232E302D&this_page=banners_member_models_customize&title_color=%232E302D&iframe=1" scrolling="no" frameborder="0"></iframe>
+      <% end %>
+
+      <div class="related_games">
+        <ul class="comments g">
+          <%= render :partial => 'game', :collection => @related unless @related.nil? %>
+        </ul>
+      </div>
+
+      <div class="twothirds">
+        <div class="description">
+          <h3>How to play <%= @game.title %></h3>
+        <%- if @game.description.length > 150 -%>
+          <p id="short_description" class="description"><%= truncate @game.description, :length => 150 %> <strong class="continue"><a href="#">More &raquo;</a></strong></p>
+          <p id="long_description" class="description"><%= @game.description.html_safe %> <strong class="continue"><a href="#">&laquo; Less</a></strong></p>
+        <%- else -%>
+          <p><%= @game.description.html_safe %></p>
+        <%- end -%>
+        </div>
+        
+		    <div id="comment_area">
+          <%= render :partial => 'comment_area' %>
+        </div>
+      </div>
+
+      <div class="onethird">
+        <% unless @tags.empty? %>
+        <h3>Tags</h3>
+        <ul class="lists double">
+        <%- for tag in @tags -%>
+          <li><%= link_to tag.name, { :action => :tag, :id => tag.name } %></li>
+        <%- end -%>
+        </ul>
+        <% end %>
+        
+        <% unless @game.pages.empty? %>
+          <h3>Related Pages</h3>
+          <%= render :partial => 'pages/item', :collection => @game.pages %>
+        <% end %>
+      </div>

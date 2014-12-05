@@ -1,0 +1,16 @@
+  <% content_for(:title, @article.title) %>
+  <div class="twothirds">
+    <div class="head_info">
+      <h2><%= @article.title %></h2>
+      <p class="description">Written by <%= link_to 'Nathan Wienert', @article.user %> on <%= relative_time @article.created_at %></p>
+    </div>
+
+    <div class="description">
+    <%= simple_format(@article.body) %>
+    </div>
+
+    <br />
+    <h4><strong><%= (link_to 'Return to blog', articles_path) %></strong></h4>
+  </div>
+
+  <%= render 'side' %>

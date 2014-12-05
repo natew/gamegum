@@ -1,0 +1,12 @@
+    <table class="forum linkit">
+      <tr class="head nolink">
+        <td width="8%"></td>
+        <td width="40%" class="left" <%= sort_td 'title' %>><h4><%= sort_link "Title", "title" %></h4></td>
+        <td width="17%" <%= sort_td 'rating' %>><h4><%= sort_link "Rating", "rating" %></h4></td>
+        <td width="10%" <%= sort_td 'views' %>><h4><%= sort_link "Views", "views" %></h4></td>
+        <td width="15%" <%= sort_td 'published' %>><h4><%= sort_link "Published", "published" %></h4></td>
+        <% if @edit %><td width="10%"></td><% end %>
+      </tr>
+      <%= render :partial => 'games/td', :collection => @games %>
+    </table>
+    <%= will_paginate @games %>

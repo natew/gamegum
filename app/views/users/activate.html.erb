@@ -1,0 +1,12 @@
+
+  <div class="twothirds">
+	<h2><%= @message %></h2>
+	
+	<% if @user.email_confirmed %>
+	<p class="description"><strong>Now that you're activated you can do a bunch of stuff!</strong>  Comment on games and in the forums, submit your games, rate and add favorites, and more!</p>
+	
+	<h3><%= link_to 'Home' %></h3>
+	<h3><%= link_to 'My Profile', current_user %></h3>
+	<h3><%= link_to 'Manage Account', :controller => 'account' %></h3>
+	<% end %>
+  </div>

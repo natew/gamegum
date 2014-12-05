@@ -1,0 +1,10 @@
+# Use the README file as a reference to customize settings.
+
+Game:
+  fields:
+    default: title, views, user, category, flash_file_name, width, height, created_at
+    form: title, screenshot, views, rating_count, rating_total, rating_avg, featured, active, nudity, violence, language, description, user_id, category, featured_at, icon_file_name, icon_file_size, flash_file_name, flash_file_size, width, height, screenshot_file_name, screenshot_file_size, touch_compatible
+  relationships:
+  order: created_at
+  search: title
+  application: Application

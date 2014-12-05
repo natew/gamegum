@@ -1,0 +1,10 @@
+# Use the README file as a reference to customize settings.
+
+User:
+  fields:
+    default: login, email, email_confirmed, gumpoints, created_at
+    form: login, email, location, aim, msn, adsense, website, time_zone, signature, ip, remember_token_expires_at, email_confirmed, active, revenue_share, banned, show_avatar, show_email, views, gumpoints, about_me, age, permissions
+  relationships:
+  order: created_at
+  search: login, email
+  application: Application

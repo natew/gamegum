@@ -1,0 +1,36 @@
+<% content_for(:title, 'Messages') %>
+<%= render :partial => 'account/nav' %>
+
+    <div class="twothirds">
+      <%= render :partial => 'shared/flash' %>
+      <%= form_tag destroy_selected_messages_path(current_user.id) do %>
+        <table width="100%">
+          <tr class="head">
+            <td class="sixty"><h4>Subject</h4></td>
+            <td class="fifteen"><h4><%= sender_or_receiver_label %></h4></td>
+            <td class="twenty"><h4>Sent</h4></td>
+            <td class="five"><input id="toggledelete" type="checkbox" /></td>
+          </tr>
+          <%- unless @messages.empty? -%>
+          <%- for message in @messages -%>
+          <tr class="<%= cycle('', 'odd') %>">
+            <td class="preview"><%= link_to_message(message) %> - <%= truncate(message.body, :length => 200).html_safe %></td>
+            <td><%= sender_or_receiver(message) %></td>
+            <td><%= relative_time sent_at(message) %></td>
+            <td><%= delete_check_box(message) %></td>
+          </tr>
+          <%- end -%>
+          <%- else -%>
+          <tr>
+            <td colspan="4">
+              No private messages.
+            </td>
+          </tr>
+        <%- end -%>
+        </table>
+        <br /><%= submit_tag "Delete", :class => 'submitbutton right' %>
+      <% end %>
+      <%= will_paginate @messages %>
+    </div>
+
+    <%= render :partial => 'side' %>

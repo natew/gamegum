@@ -1,0 +1,15 @@
+      <li id="<%= comment.id %>">
+        <div class="left">
+          <%= link_to(image_tag(comment.user.avatar.url), comment.user, :class => 'icon') if comment.user.show_avatar? %>
+          <h4><%= link_to comment.user.login, comment.user %></h4>
+          <span><%= relative_time comment.created_at %></span>
+        </div>
+        <span class="stars"><%= stars_given comment.game, comment.user %><% if @edit %>
+          <%= link_to 'Delete', game_comment_path(comment.game,comment), { :class => 'modal submitbutton', :rel => "remove_game_#{comment.id}" } %>
+          <div id="remove_game_<%= comment.id %>_modal" class="modal_window">
+            <h2>Are you sure you'd like to delete your comment?</h2><br />
+            <%= link_to 'Delete', game_comment_path(comment.game,comment), :method => :delete, :class => 'submitbutton' %>
+          </div>
+        <% end %></span>
+        <p class="right"><%= comment.message %></p>
+      </li>

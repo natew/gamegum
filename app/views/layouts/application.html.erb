@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--[if lte IE 8]> <html lang="en-us" class="ie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-us"> <!--<![endif]-->
+<head>
+  <title><%= yield_for(:title, 'GameGum') %> | Free Online Games | GameGum Arcade</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="<%= yield_for(:title, '') %>.  Addicting fun flash games arcade." />
+  <%= csrf_meta_tags %>
+
+  <!-- Stylesheet -->
+  <%= stylesheet_link_tag 'application', :media => 'screen' %>
+
+</head>
+<body>
+
+  <div id="body_contain">
+  <%- unless flash.blank? -%>
+  <div id="flash">
+    <% flash.each do |key, msg| %>
+      <%= content_tag :h4, msg, :class => key %>
+    <% end %>
+  </div>
+  <%- end -%>
+
+  <!-- <div class="notice">
+    Flash game submissions were broken for the last week but are now fixed!  We apologize for the long delay in getting them working again.
+  </div> -->
+
+  <div id="head">
+    <div>
+      <h1><%= link_to "Free Online Games | GameGum Arcade", root_url, :title => 'Free Online Games | GameGum Arcade'  %></h1>
+      <%= link_to 'Safe Browsing', '', :class => 'modal tip restriction', :rel => 'signup' unless logged_in? %>
+
+      <ul id="nav">
+        <%= li 'Free Games'.html_safe, viewed_games_path(:within => 31), :active => { :when => [['games'], ['index', 'viewed', 'rated', 'favorites', 'discussed', 'category']] }, :rel => 'browse_games' %>
+        <%= li 'Community', topics_path, :active => { :when => [['topics', 'discussions', 'users'], []] }, :rel => 'community' %>
+      </ul>
+
+      <%= form_tag '/main/search', :method => 'get' do %>
+        <%= submit_tag "Search", :id => 'searchbutton' %>
+        <%= text_field_tag :query,'', :placeholder => (params[:query].nil? ? 'Search games and users' : params[:query]) %>
+      <%- end -%>
+
+      <%- unless logged_in? -%>
+      <ul class="nav2 logged_out">
+          <li class="right"><%= link_to 'Login', login_path, { :rel => 'login' } %></li>
+          <li class="right"><%= link_to 'Sign Up', register_path, { :rel => 'signup' } %></li>
+          <%= li 'Upload', submit_path, { :title => "#{number_with_delimiter @users_count} gamers, #{number_with_delimiter @games_count} games", :class => 'tip' } %>
+      </ul>
+      <%- else -%>
+      <ul class="nav2 logged_in">
+          <li><%= link_to 'Logout', logout_path, :class => 'grey' %></li>
+          <li><%= link_to image_tag('icons/243.png'), current_user, :class => 'grey' %></li>
+          <%= li image_tag('icons/265.png'), '/account', :class => 'grey' %>
+          <%= li "#{image_tag('icons/76.png')} #{current_user.unread_messages.size}".html_safe, inbox_messages_path unless current_user.unread_messages.size.zero? %>
+          <%= li 'Upload', submit_path, { :title => "#{number_with_delimiter @users_count} gamers, #{number_with_delimiter @games_count} games", :class => 'tip' } %>
+      </ul>
+      <%- end -%>
+    </div>
+  </div>
+
+  <div id="slidedown_menus"><div class="inner">
+    <div class="slidedown browse_games">
+      <ul>
+        <%= li image_tag('icons/189.png')+'Popular Games', viewed_games_path %>
+        <%= li image_tag('icons/206.png')+'Top Games', rated_games_path  %>
+        <%= li image_tag('icons/208.png')+'Most Liked Games', favorites_games_path  %>
+        <%= li image_tag('icons/234.png')+'Most Chatted Games', discussed_games_path  %><hr />
+
+        <li class="full"><h4>Categories</h4></li>
+      <% @categories.each do |cat| %>
+        <li class="cat"><%= link_to cat.title, cat %></li>
+      <% end %>
+      </ul>
+    </div>
+
+    <div class="slidedown community">
+      <ul>
+        <%= li image_tag('icons/153.png')+'Forums', '/topics' %>
+        <%= li image_tag('icons/81.png')+'Pulse', '/pulse' %>
+        <%= li image_tag('icons/244.png')+'Top Users', '/users'  %>
+        <%= li image_tag('icons/38.png')+'Now Playing', '/games/live'  %><hr />
+
+        <li class="full"><h4>Forum Topics</h4></li>
+      <% @topics.each do |topic| %>
+        <li class="cat"><%= link_to topic.title, topic %></li>
+      <% end %>
+      </ul>
+    </div>
+
+    <%- unless logged_in? -%>
+    <div class="slidedown login">
+      <%= render 'sessions/new_form' %>
+    </div>
+    <div class="slidedown signup">
+      <%= render 'users/new_form' %>
+    </div>
+    <%- end -%>
+  </div></div>
+
+  <%- unless logged_in? -%>
+    <div class="box intro">
+      <h3>Welcome to the best free online games arcade!  <span>Check out our <%= link_to 'most popular', viewed_games_path %> , <%= link_to 'most liked', favorites_games_path %> &amp; <%= link_to 'featured', featured_games_path %> games!</span></h3>
+    </div>
+  <%- end -%>
+
+  <div id="content">
+<%= yield %>
+  </div>
+
+  <%- unless logged_in? -%>
+  <div id="login_modal" class="modal_window">
+    <h2>Login</h2>
+    <%= render 'sessions/new_form' %>
+  </div>
+  <div id="signup_modal" class="modal_window">
+    <h2>Sign up!</h2>
+    <p>In order to browse content with a teen or mature rating, just complete our super-quick signup form!</p>
+    <%= render 'users/new_form' %>
+  </div>
+  <%- end -%>
+
+  <div id="network" class="inner">
+    <ul>
+      <li><a href="http://natewienert.com">Nathan Wienert</a></li>
+      <li><a href="http://vbseed.com">Free vBulletin skins</a></li>
+      <li><a href="http://webuildappsforyou.com">iPhone app developers</a></li>
+      <li><a href="http://stonecactuswaterfalls.com">Tucson water sculpture waterfalls</a></li>
+    </ul>
+  </div>
+
+  <div id="footer"><div class="inner">
+    <ul>
+      <li class="pict"><%= link_to 'H', '/', :class => 'tip', :title => 'test' %></li>
+      <li><%= link_to 'Free Online Games', viewed_games_path %></li>
+      <li><%= link_to 'Community', topics_path %></li>
+      <li><%= link_to 'About', :controller => 'main', :action => 'about' %></li>
+    </ul>
+    <span>&copy; <strong>GameGum</strong> 2004-<%= Time.now.year %>.  All Rights Reserved.</span>
+ </div></div>
+
+  <!-- Javascripts -->
+  <%= javascript_include_tag :application %>
+
+  <!-- Analytics
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19362890-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script> -->
+</div></body>
+</html>
